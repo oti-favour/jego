@@ -1,11 +1,9 @@
 "use client";
 
 import { animatePageIn } from "@/animations";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-function Transition({ children }: { children?: React.ReactNode }) {
-  const [loading, setLoading] = useState(true);
-
+function Transition() {
   useEffect(() => {
     animatePageIn();
   }, []);
