@@ -1,5 +1,6 @@
+import HomeLayout from "@/components/home/HomeLayout";
 import Image from "next/image";
 
-export default function Home() {
-  return <main className="">Hello mum!</main>;
+export default async function Home() {
+  return <HomeLayout></HomeLayout>;
 }
