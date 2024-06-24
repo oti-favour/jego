@@ -10,8 +10,8 @@ const config: Config = {
     extend: {
       backgroundImage: {
         loading: "url('/assets/loadingBg.svg')",
-        home_ray: "url('/assets/rays-left.png')",
-        home_car: "url('/assets/home_car.png')",
+        home_ray: "url('/assets/rays-left.webp')",
+        home_car: "url('/assets/home_car.webp')",
       },
       backgroundSize: {
         "80": "80%",
