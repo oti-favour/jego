@@ -1,4 +1,7 @@
-export interface NavItemProps {
+interface NavItemProps {
   href: string;
-  text: string;
+  text?: string;
+  icon?: React.ReactNode;
+  rounded?: boolean;
+  roundedClass?: string;
 }

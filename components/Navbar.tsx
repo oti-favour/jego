@@ -7,7 +7,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuItemProps,
-  NavigationMenuSub,
 } from "@radix-ui/react-navigation-menu";
 import Logo from "./Logo";
 import Menu from "@/public/assets/menu.svg";
@@ -21,21 +20,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import { NavbarConst } from "@/lib/consts";
 
 function Navbar() {
-  const components: NavItemProps[] = [
-    { href: "/power-pods", text: "Power Pods" },
-    { href: "/jego-pods", text: "JéGo Pods" },
-    { href: "/electric-vehicles", text: "Electric Vehicles" },
-    { href: "/about-us", text: "About Us" },
-    { href: "/investors", text: "Investors" },
-    { href: "/contact-us", text: "Contact Us", rounded: true },
-  ];
-
   return (
     <header className="pt-4">
-      <MobileNav components={components} />
-      <DesktopNav components={components} />
+      <MobileNav components={NavbarConst} />
+      <DesktopNav components={NavbarConst} />
     </header>
   );
 }
@@ -151,13 +142,5 @@ const NavItem: React.FC<NavItemProps & NavigationMenuItemProps> = ({
     </NavigationMenuItem>
   );
 };
-
-interface NavItemProps {
-  href: string;
-  text?: string;
-  icon?: React.ReactNode;
-  rounded?: boolean;
-  roundedClass?: string;
-}
 
 export default Navbar;
