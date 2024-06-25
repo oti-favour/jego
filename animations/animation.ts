@@ -17,6 +17,9 @@ export function animatePageIn() {
       amount: 0.5,
     },
     ease: "power4.inOut",
+    onComplete: () => {
+      ref.style.display = "none";
+    },
   });
 }
 
