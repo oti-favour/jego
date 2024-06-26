@@ -1,35 +1,52 @@
 "use client";
 import { Page } from "@/types/generated-types";
-import React, { useRef } from "react";
+import React from "react";
 import SVG from "react-inlinesvg";
 import { Progress } from "./ui/progress";
 
 function FeaturesStepper({ features }: FeaturesStepperProps) {
   const [activeStep, setActiveStep] = React.useState(0);
-  let currentIndex = useRef(0);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => {
         const next = prev + 100 / features.length;
 
-        currentIndex.current = Math.floor(activeStep / (100 / features.length));
+        setCurrentIndex(Math.floor(activeStep / (100 / features.length)));
         return next > 100 ? 0 : next;
       });
-    }, 2000);
+    }, 1600);
 
     return () => clearInterval(interval);
   }, [activeStep, features.length]);
 
+  React.useEffect(() => {
+    if (scrollContainerRef.current) {
+      const firstChild = scrollContainerRef.current
+        .firstChild as HTMLElement | null;
+      const childWidth = firstChild?.getBoundingClientRect().width || 0;
+      const newScrollPosition = currentIndex * childWidth;
+      scrollContainerRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: "smooth",
+      });
+    }
+  }, [currentIndex]);
+
   return (
     <div className="space-y-8">
       <Progress className="h-1" value={activeStep} />
-      <div className="flex gap-6">
+      <div
+        ref={scrollContainerRef}
+        className="scrollbar-hide flex gap-6 overflow-x-scroll"
+      >
         {features.map((feature, index) => (
           <div
             key={index}
-            className={`space-y-4 ${
-              currentIndex.current === index ? "text-white" : "text-gray-500"
+            className={`min-w-56 space-y-4 ${
+              currentIndex === index ? "text-white" : "text-gray-500"
             }`}
           >
             <div className="max-w-fit rounded-xl bg-white/10 p-2">
