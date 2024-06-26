@@ -75,3 +75,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'Gustavo';
+  src: url('../public/fonts/Gustavo_Light.otf');
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gustavo';
+  src: url('../public/fonts/Gustavo_Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gustavo';
+  src: url('../public/fonts/Gustavo_Medium.otf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gustavo';
+  src: url('../public/fonts/Gustavo_Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
