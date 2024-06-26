@@ -6,10 +6,9 @@ export default defineType({
   type: "document",
   preview: {
     select: {
-      title: "slug",
+      title: "slug.current",
       subtitle: "title",
     },
-
     prepare({ title, subtitle }) {
       title = title.charAt(0).toUpperCase() + title.slice(1);
       return {
@@ -19,17 +18,29 @@ export default defineType({
     },
   },
   fields: [
-    defineField({
-      name: "slug",
-      type: "string",
-      title: "Slug",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "title",
-      type: "string",
-      validation: (Rule) => Rule.required().min(20),
-    }),
+    defineField(
+      {
+        name: "slug",
+        type: "slug",
+        title: "Slug",
+        validation: (Rule) => Rule.required(),
+        codegen: { required: true },
+      },
+      {
+        strict: false,
+      },
+    ),
+    defineField(
+      {
+        name: "title",
+        type: "string",
+        codegen: { required: true },
+        validation: (Rule) => Rule.required().min(20),
+      },
+      {
+        strict: false,
+      },
+    ),
     defineField({
       name: "subtitle",
       type: "string",
@@ -46,10 +57,18 @@ export default defineType({
       title: "CTA Text",
       validation: (Rule) => Rule.max(50),
     }),
-    defineField({
-      name: "pageFeatures",
-      type: "array",
-      of: [{ type: "pageFeatures" }],
-    }),
+    defineField(
+      {
+        name: "pageFeatures",
+        type: "array",
+        of: [{ type: "pageFeatures" }],
+        codegen: { required: true },
+        initialValue: [],
+        validation: (Rule) => Rule.unique(),
+      },
+      {
+        strict: false,
+      },
+    ),
   ],
 });
