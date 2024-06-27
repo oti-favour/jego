@@ -8,7 +8,7 @@ function Template({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
     setTimeout(() => {
       setShow(true);
-    }, 1000);
+    }, 3000);
   }, []);
 
   return (
