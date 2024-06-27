@@ -5,7 +5,7 @@ const HeadingOne: Heading = ({ text, className, ...props }) => {
   return (
     <h1
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[-2px] md:text-8xl",
+        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
         className,
       )}
       {...props}

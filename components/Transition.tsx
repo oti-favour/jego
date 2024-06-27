@@ -2,14 +2,16 @@
 
 import { animatePageIn } from "@/animations";
 import { HomePageContext } from "@/hooks/useHomeData";
-import { useContext, useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import { useContext } from "react";
 
 function Transition({ children }: { children: React.ReactNode }) {
   const { data, isLoading } = useContext(HomePageContext);
 
-  useEffect(() => {
-    if (isLoading && !data) return;
-    animatePageIn();
+  useGSAP(() => {
+    if (!isLoading && data) {
+      animatePageIn();
+    }
   }, [data, isLoading]);
 
   return (
