@@ -12,8 +12,10 @@ function Transition({ children }: { children: React.ReactNode }) {
     console.log("mounted");
 
     if (!isLoading && data) {
-      console.log("starting animation");
-      animatePageIn();
+      setTimeout(() => {
+        console.log("starting animation");
+        animatePageIn();
+      }, 3000);
     }
   }, [data, isLoading]);
 
