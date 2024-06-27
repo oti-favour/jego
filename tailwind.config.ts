@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       backgroundImage: {
-        loading: "url('/assets/loadingBg.svg')",
+        loading: "url('/assets/loadingBg.webp')",
         hero_ray: "url('/assets/rays-left.webp')",
         hero_car: "url('/assets/home_car.webp')",
         intro: "url('/assets/intro_bg.webp')",
