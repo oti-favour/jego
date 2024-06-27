@@ -1,11 +1,21 @@
+"use client";
 import Transition from "@/components/Transition";
+import React from "react";
 
 function Template({ children }: { children: React.ReactNode }) {
+  const [show, setShow] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setShow(true);
+    }, 1000);
+  }, []);
+
   return (
-    <div>
-      {children}
+    <>
+      {show && children}
       <Transition />
-    </div>
+    </>
   );
 }
 
