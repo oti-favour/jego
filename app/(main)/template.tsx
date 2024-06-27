@@ -4,8 +4,7 @@ import HomeDataProvider from "@/hooks/useHomeData";
 function Template({ children }: { children: React.ReactNode }) {
   return (
     <HomeDataProvider>
-      {children}
-      <Transition />
+      <Transition>{children}</Transition>
     </HomeDataProvider>
   );
 }
