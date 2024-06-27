@@ -1,6 +1,7 @@
 import { Home } from "@/types/generated-types";
 import { fetchDocument } from "@/utils/actions/actions";
 import { GetHomePage } from "@/utils/queries/queries";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import HeroSection from "./(sections)/hero";
@@ -27,6 +28,7 @@ async function Main() {
     <>
       <HeroSection hero={hero} />
       <IntroSection intro={intro} />
+      <SpeedInsights />
     </>
   );
 }
