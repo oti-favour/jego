@@ -8,6 +8,7 @@ export function animatePageIn() {
   const tl = gsap.timeline();
 
   tl.to(ref.children, {
+    animationDelay: 1,
     duration: 2,
     yPercent: -100,
     backgroundAttachment: "fixed",

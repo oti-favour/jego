@@ -2,14 +2,21 @@
 
 import { animatePageIn } from "@/animations";
 import { HomePageContext } from "@/hooks/useHomeData";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function Transition({ children }: { children: React.ReactNode }) {
   const { data, isLoading } = useContext(HomePageContext);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     if (!isLoading && data) {
       animatePageIn();
+    }
+
+    if (!isLoading && data) {
+      setTimeout(() => {
+        setShow(true);
+      }, 500);
     }
   }, [data, isLoading]);
 
@@ -26,7 +33,7 @@ function Transition({ children }: { children: React.ReactNode }) {
         <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
         <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
       </div>
-      {!isLoading && children}
+      {show && children}
     </>
   );
 }
