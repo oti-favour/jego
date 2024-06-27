@@ -5,6 +5,13 @@ export type Heading = React.FC<
   } & React.HTMLAttributes<HTMLHeadingElement>
 >;
 
+export type ParagraphType = React.FC<
+  {
+    text: string;
+    className?: string;
+  } & React.HTMLAttributes<HTMLParagraphElement>
+>;
+
 export interface NavItemProps {
   href: string;
   text?: string;

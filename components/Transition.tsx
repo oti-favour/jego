@@ -9,7 +9,10 @@ function Transition({ children }: { children: React.ReactNode }) {
   const { data, isLoading } = useContext(HomePageContext);
 
   useGSAP(() => {
+    console.log("mounted");
+
     if (!isLoading && data) {
+      console.log("starting animation");
       animatePageIn();
     }
   }, [data, isLoading]);

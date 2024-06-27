@@ -4,14 +4,10 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 export function animatePageIn() {
   const ref = document.getElementById("loading");
 
-  if (!ref) return console.log("no loading");
+  if (!ref) return;
   const tl = gsap.timeline();
 
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("loaded");
-  });
-
-  tl.from("#content", { autoAlpha: 0 }).to(ref.children, {
+  tl.from("#content", { animationDelay: 0.5, autoAlpha: 0 }).to(ref.children, {
     animationDelay: 1,
     duration: 2,
     yPercent: -100,

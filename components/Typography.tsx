@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Heading } from "@/types/types";
+import { Heading, ParagraphType } from "@/types/types";
 
 const HeadingOne: Heading = ({ text, className, ...props }) => {
   return (
@@ -14,6 +14,8 @@ const HeadingOne: Heading = ({ text, className, ...props }) => {
     </h1>
   );
 };
+
+export default HeadingOne;
 
 export const HeadingThree: Heading = ({ text, className, ...props }) => {
   return (
@@ -34,4 +36,10 @@ export const HeadingFour: Heading = ({ text, className, ...props }) => {
   );
 };
 
-export default HeadingOne;
+export const Paragraph: ParagraphType = ({ text, className, ...props }) => {
+  return (
+    <p className={cn("font-gustavo text-lg font-bold uppercase", className)}>
+      {text}
+    </p>
+  );
+};

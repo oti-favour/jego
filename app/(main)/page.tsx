@@ -11,11 +11,12 @@ function Main() {
     return null;
   }
 
-  const { hero, intro } = data;
+  const { hero, intro, powerPod } = data;
   return (
     <>
       <HeroSection hero={hero} />
       <IntroSection intro={intro} />
+      {/* <PowerPodSection powerPod={powerPod}/> */}
       <SpeedInsights />
     </>
   );
