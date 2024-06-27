@@ -2,6 +2,7 @@
 import { NavbarConst } from "@/lib/consts";
 import { cn } from "@/lib/utils";
 import Menu from "@/public/assets/menu.svg";
+import { NavItemProps } from "@/types/types";
 import {
   NavigationMenu,
   NavigationMenuItem,
