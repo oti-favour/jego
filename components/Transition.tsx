@@ -11,12 +11,10 @@ function Transition({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!isLoading && data) {
       animatePageIn();
-    }
 
-    if (!isLoading && data) {
       setTimeout(() => {
         setShow(true);
-      }, 500);
+      }, 800);
     }
   }, [data, isLoading]);
 
