@@ -7,7 +7,7 @@ export function animatePageIn() {
   if (!ref) return console.log("no loading");
   const tl = gsap.timeline();
 
-  tl.to(ref.children, {
+  tl.from("#content", { autoAlpha: 0 }).to(ref.children, {
     animationDelay: 1,
     duration: 2,
     yPercent: -100,

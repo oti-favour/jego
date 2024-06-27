@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { PT_Sans } from "next/font/google";
 import "./globals.css";
-
-const sans = PT_Sans({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Jégo",
@@ -16,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={sans.className}>{children}</body>
+      <body className={"font-product"}>{children}</body>
     </html>
   );
 }
