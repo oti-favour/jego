@@ -1,3 +1,5 @@
+import { NavItemProps } from "@/types/types";
+
 export const NavbarConst: NavItemProps[] = [
   { href: "/power-pods", text: "Power Pods" },
   { href: "/jego-pods", text: "JéGo Pods" },
