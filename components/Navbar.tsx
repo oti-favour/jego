@@ -24,7 +24,7 @@ import {
 
 function Navbar() {
   return (
-    <header>
+    <header className="lg:container">
       <MobileNav components={NavbarConst} />
       <DesktopNav components={NavbarConst} />
     </header>
