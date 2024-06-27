@@ -6,7 +6,7 @@ import HeroLayout from "@/components/home/HeroLayout";
 import ScrollIcon from "@/public/assets/scroll-icon.svg";
 import { Hero, Overview } from "@/types/generated-types";
 
-async function HeroSection({ hero }: { hero: Hero }) {
+function HeroSection({ hero }: { hero: Hero }) {
   return (
     <HeroLayout>
       <div className="flex h-full min-h-svh flex-col pt-12 lg:container">
