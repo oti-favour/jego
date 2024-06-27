@@ -1,21 +1,12 @@
-"use client";
 import Transition from "@/components/Transition";
-import React from "react";
+import HomeDataProvider from "@/hooks/useHomeData";
 
 function Template({ children }: { children: React.ReactNode }) {
-  const [show, setShow] = React.useState(false);
-
-  React.useEffect(() => {
-    setTimeout(() => {
-      setShow(true);
-    }, 3000);
-  }, []);
-
   return (
-    <>
-      {show && children}
+    <HomeDataProvider>
+      {children}
       <Transition />
-    </>
+    </HomeDataProvider>
   );
 }
 
