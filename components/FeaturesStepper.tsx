@@ -37,7 +37,11 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
 
   return (
     <div className="space-y-8">
-      <Progress className="h-1" value={activeStep} />
+      <Progress
+        aria-label="Features Progress"
+        className="h-1"
+        value={activeStep}
+      />
       <div
         ref={scrollContainerRef}
         className="flex max-w-[100swh] justify-evenly gap-6 overflow-x-scroll scrollbar-hide"
