@@ -2,6 +2,23 @@
 
 import { client } from "@/sanity/lib/client";
 
+export async function fetchDocument<T>({
+  query,
+}: {
+  query: string;
+}): Promise<T | null> {
+  try {
+    const res: T = await client.fetch(query, {}, { cache: "no-cache" });
+
+    if (res) {
+      return res;
+    }
+    throw new Error("Failed to fetch item");
+  } catch {
+    return null;
+  }
+}
+
 export async function fetchDocuments<T>(query: string): Promise<T[]> {
   try {
     const res: T[] = await client.fetch(query, {}, { cache: "no-cache" });
@@ -64,7 +81,7 @@ export async function fetchDocumentsByProperty<T>({
     const res: T[] = await client.fetch(
       query,
       { property },
-      { cache: "no-cache" }
+      { cache: "no-cache" },
     );
 
     if (res) {
