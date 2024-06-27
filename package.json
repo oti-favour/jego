@@ -28,6 +28,7 @@
     "sanity": "3",
     "sanity-plugin-icon-picker": "^3.3.0",
     "styled-components": "6",
+    "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-animate": "^1.0.7"
