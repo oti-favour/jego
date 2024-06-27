@@ -1,24 +1,29 @@
 "use client";
 
 import { animatePageIn } from "@/animations";
-import { useEffect } from "react";
+import { HomePageContext } from "@/hooks/useHomeData";
+import { useContext, useEffect } from "react";
 
 function Transition() {
+  const { data, isLoading } = useContext(HomePageContext);
+
   useEffect(() => {
-    animatePageIn();
-  }, []);
+    if (!isLoading && data) {
+      animatePageIn();
+    }
+  }, [data, isLoading]);
 
   return (
     <div
       id="loading"
-      className="flex h-svh w-svw fixed top-0 left-0 z-50"
+      className="fixed left-0 top-0 z-50 flex h-svh w-svw"
       suppressHydrationWarning
     >
-      <div className="bg-loading bg-fixed w-full bg-cover"></div>
-      <div className="bg-loading bg-fixed w-full h-full bg-cover"></div>
-      <div className="bg-loading bg-fixed w-full h-full bg-cover"></div>
-      <div className="bg-loading bg-fixed w-full h-full bg-cover"></div>
-      <div className="bg-loading bg-fixed bg-cover w-full h-full"></div>
+      <div className="w-full bg-loading bg-cover bg-fixed"></div>
+      <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
+      <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
+      <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
+      <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
     </div>
   );
 }
