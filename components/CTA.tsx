@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
@@ -14,13 +15,7 @@ const CTA: React.FC<CTAProps & React.HTMLProps<HTMLAnchorElement>> = (
         <div className="flex max-w-fit items-center gap-4 rounded-full bg-white px-2 py-2 text-black">
           <span className={cn("ml-4", "font-bold")}>{props.text}</span>
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-darkOrange">
-            {props.icon ? (
-              props.icon
-            ) : (
-              <span className="material-icons-outlined text-sm">
-                arrow_forward_ios
-              </span>
-            )}
+            {props.icon ? props.icon : <ChevronRight size={24} />}
           </span>
         </div>
       )}
