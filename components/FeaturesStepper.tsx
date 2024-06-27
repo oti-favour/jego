@@ -1,5 +1,5 @@
 "use client";
-import { Page } from "@/types/generated-types";
+import { PageFeatures } from "@/types/generated-types";
 import React from "react";
 import SVG from "react-inlinesvg";
 import { Progress } from "./ui/progress";
@@ -17,7 +17,7 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
         setCurrentIndex(Math.floor(activeStep / (100 / features.length)));
         return next > 100 ? 0 : next;
       });
-    }, 1600);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [activeStep, features.length]);
@@ -40,7 +40,7 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
       <Progress className="h-1" value={activeStep} />
       <div
         ref={scrollContainerRef}
-        className="scrollbar-hide flex gap-6 overflow-x-scroll"
+        className="flex max-w-[100swh] justify-evenly gap-6 overflow-x-scroll scrollbar-hide"
       >
         {features.map((feature, index) => (
           <div
@@ -61,7 +61,7 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
 }
 
 interface FeaturesStepperProps {
-  features: Page["pageFeatures"];
+  features: PageFeatures[];
 }
 
 export default FeaturesStepper;
