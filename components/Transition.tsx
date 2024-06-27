@@ -31,7 +31,7 @@ function Transition({ children }: { children: React.ReactNode }) {
         <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
         <div className="h-full w-full bg-loading bg-cover bg-fixed"></div>
       </div>
-      {show && children}
+      <div className={`${show ? "block" : "hidden"}`}>{children}</div>
     </>
   );
 }
