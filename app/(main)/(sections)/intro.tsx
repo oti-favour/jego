@@ -1,5 +1,5 @@
 import { CTAPlain } from "@/components/CTA";
-import HeadingOne, { HeadingFour, HeadingThree } from "@/components/Typography";
+import { Caption, HeadingTwo, Paragraph } from "@/components/Typography";
 import IntroLayout from "@/components/home/IntroLayout";
 import { sanityImageUrl } from "@/lib/utils";
 import { Intro } from "@/types/generated-types";
@@ -13,9 +13,9 @@ function IntroSection({ intro }: { intro: Intro }) {
     <IntroLayout>
       <div className="flex h-full min-h-svh items-center text-white lg:container">
         <div className="w-full space-y-16">
-          <div className="flex flex-col gap-6">
-            <HeadingOne text={overview.title} className="max-w-5xl" />
-            <HeadingThree
+          <div className="flex max-w-5xl flex-col gap-6">
+            <HeadingTwo text={overview.title} className="max-w-4xl" />
+            <Paragraph
               text={overview.description}
               className="block lg:hidden"
             />
@@ -28,11 +28,11 @@ function IntroSection({ intro }: { intro: Intro }) {
           <div className="flex flex-col">
             <div className="flex flex-col-reverse lg:flex-row">
               <div className="w-full">
-                <HeadingFour text={"Our Partners"} className="" />
+                <Caption text={"Our Partners"} className="" />
                 <OurPartners partners={intro.partners} />
               </div>
             </div>
-            <HeadingThree
+            <Paragraph
               text={overview.description}
               className="-mt-4 hidden self-end lg:block"
             />
