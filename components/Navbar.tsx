@@ -10,6 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@radix-ui/react-navigation-menu";
+import { X } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Logo from "./Logo";
@@ -64,9 +65,7 @@ function MobileNav({ components }: { components: NavItemProps[] }) {
                   />
                 </NavigationMenuList>
                 <SheetClose aria-label="Close" className="text-xl">
-                  <span className="material-icons-outlined text-4xl">
-                    close
-                  </span>
+                  <X size={32} />
                 </SheetClose>
               </div>
 
