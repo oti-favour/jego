@@ -1,12 +1,9 @@
 import Transition from "@/components/Transition";
-import HomeDataProvider from "@/hooks/useHomeData";
+import getData from "@/hooks/getHomeData";
 
-function Template({ children }: { children: React.ReactNode }) {
-  return (
-    <HomeDataProvider>
-      <Transition>{children}</Transition>
-    </HomeDataProvider>
-  );
+async function Template({ children }: { children: React.ReactNode }) {
+  const data = await getData();
+  return <Transition data={data}>{children}</Transition>;
 }
 
 export default Template;
