@@ -1,23 +1,20 @@
 "use client";
-
 import { animatePageIn } from "@/animations";
-import { HomePageContext } from "@/hooks/useHomeData";
+import { Home } from "@/types/generated-types";
 import { useGSAP } from "@gsap/react";
-import { useContext } from "react";
 
-function Transition({ children }: { children: React.ReactNode }) {
-  const { data, isLoading } = useContext(HomePageContext);
-
+function Transition({
+  children,
+  data,
+}: {
+  children: React.ReactNode;
+  data: Home | null;
+}) {
   useGSAP(() => {
-    console.log("mounted");
-
-    if (!isLoading && data) {
-      setTimeout(() => {
-        console.log("starting animation");
-        animatePageIn();
-      }, 3000);
+    if (data) {
+      animatePageIn();
     }
-  }, [data, isLoading]);
+  }, [data]);
 
   return (
     <>
