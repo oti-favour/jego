@@ -6,6 +6,7 @@ import { useContext, useEffect } from "react";
 
 function Transition({ children }: { children: React.ReactNode }) {
   const { data, isLoading } = useContext(HomePageContext);
+  const isHydrated = typeof window !== "undefined";
 
   useEffect(() => {
     if (!isLoading && data) {
@@ -15,7 +16,7 @@ function Transition({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {!isLoading && children}
+      {!isLoading && isHydrated && children}
       <div
         id="loading"
         className="fixed left-0 top-0 z-50 flex h-svh w-svw"
