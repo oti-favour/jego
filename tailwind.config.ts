@@ -33,6 +33,7 @@ const config = {
 
       fontFamily: {
         gustavo: ["Gustavo", "sans-serif"],
+        product: ["Product Sans", "sans-serif"],
       },
 
       colors: {
