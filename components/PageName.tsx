@@ -4,7 +4,7 @@ const PageName: React.FC<PageNameProps> = ({ text, position, className }) => {
   return (
     <div
       className={cn(
-        `flex w-full text-white`,
+        `flex w-full pt-6 text-white md:pt-12`,
         position === "right" && "justify-end",
         className,
       )}
