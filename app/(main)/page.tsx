@@ -3,6 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
 import HeroSection from "./(sections)/hero";
 import IntroSection from "./(sections)/intro";
+import JegoPodSection from "./(sections)/jego_pod";
 import PowerPodSection from "./(sections)/power_pod";
 
 async function Main() {
@@ -12,12 +13,13 @@ async function Main() {
     return notFound();
   }
 
-  const { hero, intro, powerPod } = data;
+  const { hero, intro, powerPod, jegoPod } = data;
   return (
     <>
       <HeroSection hero={hero} />
       <IntroSection intro={intro} />
       <PowerPodSection powerPod={powerPod} />
+      <JegoPodSection jegoPod={jegoPod} />
       <SpeedInsights />
     </>
   );
