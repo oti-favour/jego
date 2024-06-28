@@ -24,6 +24,7 @@ const config = {
         hero_car: "url('/assets/home_car.webp')",
         intro: "url('/assets/intro_bg.webp')",
         power_pod: "url('/assets/power_pod.webp')",
+        jego_pod: "url('/assets/jego_pod.webp')",
         lightning: "url('/assets/lightning.webp')",
       },
 
