@@ -50,10 +50,21 @@ export const HeadingThree: Heading = ({
   );
 };
 
-export const HeadingFour: Heading = ({ text, className, ...props }) => {
+export const HeadingFour: Heading = ({
+  text,
+  className,
+  children,
+  ...props
+}) => {
   return (
-    <h4 className={cn("font-gustavo text-lg font-bold uppercase", className)}>
-      {text}
+    <h4
+      className={cn(
+        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        className,
+      )}
+      {...props}
+    >
+      {!children ? text : children}
     </h4>
   );
 };
