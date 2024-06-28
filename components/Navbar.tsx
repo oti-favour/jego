@@ -61,7 +61,11 @@ function MobileNav({ components }: { components: NavItemProps[] }) {
                   <NavItem
                     href="/"
                     onClick={toggleMenu}
-                    icon={<Logo variant="secondary" className="w-32" />}
+                    icon={
+                      <div>
+                        <Logo variant="secondary" className="w-fit max-w-fit" />
+                      </div>
+                    }
                   />
                 </NavigationMenuList>
                 <SheetClose aria-label="Close" className="text-xl">
@@ -109,7 +113,7 @@ function DesktopNav({ components }: { components: NavItemProps[] }) {
       <NavigationMenuList>
         <NavItem href="/" icon={<Logo />} />
       </NavigationMenuList>
-      <NavigationMenuList className="flex items-center gap-8 text-lg text-white">
+      <NavigationMenuList className="flex items-center gap-8 text-white">
         {components.map((component, index) => (
           <NavItem key={index} {...component} />
         ))}
