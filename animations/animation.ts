@@ -3,25 +3,29 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 
 export function animatePageIn() {
   const ref = document.getElementById("loading");
+  const body = document.querySelector("body");
 
   if (!ref) return;
   const tl = gsap.timeline();
 
-  tl.from("#content", { autoAlpha: 0 }).to(ref.children, {
-    animationDelay: 1,
-    duration: 2,
-    yPercent: -100,
-    backgroundAttachment: "fixed",
-    delay: 0.5,
-    stagger: {
-      from: "random",
-      amount: 0.5,
-    },
-    ease: "power4.inOut",
-    onComplete: () => {
-      ref.style.display = "none";
-    },
-  });
+  tl.set("body", { overflow: "hidden" })
+    .from("#content", { autoAlpha: 0 })
+    .to(ref.children, {
+      animationDelay: 1,
+      duration: 2,
+      yPercent: -100,
+      backgroundAttachment: "fixed",
+      delay: 0.5,
+      stagger: {
+        from: "random",
+        amount: 0.5,
+      },
+      ease: "power4.inOut",
+      onComplete: () => {
+        ref.style.display = "none";
+      },
+    })
+    .set("body", { overflow: "auto" });
 }
 
 export function animatePageOut(href: string, router: AppRouterInstance) {
