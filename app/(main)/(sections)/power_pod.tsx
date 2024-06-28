@@ -13,9 +13,9 @@ function PowerPodSection({ powerPod }: { powerPod: PowerPod }) {
   const restOfTitle = overview.title.split(" ").slice(1).join(" ");
   return (
     <PowerPodLayout>
-      <div className="flex h-full w-full flex-col px-4 lg:container">
+      <div className="grid h-full min-h-svh w-full px-4 lg:container">
         <PageName text={overview.pageName} />
-        <div className="flex h-full flex-col justify-center">
+        <div className="flex h-full flex-1 grow flex-col justify-center">
           <div className="space-y-8 py-12 text-white">
             <div className="flex flex-col-reverse gap-8 md:flex-col">
               <div className="max-w-4xl space-y-8">
