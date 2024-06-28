@@ -31,13 +31,21 @@ export const HeadingTwo: Heading = ({ text, className, ...props }) => {
   );
 };
 
-export const HeadingThree: Heading = ({ text, className, ...props }) => {
+export const HeadingThree: Heading = ({
+  text,
+  className,
+  children,
+  ...props
+}) => {
   return (
     <h3
-      className={cn("max-w-xs text-sm md:max-w-sm md:text-lg", className)}
+      className={cn(
+        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        className,
+      )}
       {...props}
     >
-      {text}
+      {!children ? text : children}
     </h3>
   );
 };
