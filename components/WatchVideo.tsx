@@ -13,7 +13,7 @@ const WatchVideo: React.FC<WatchVideoProps> = ({ videoUrl, title }) => {
             <Play fill="black" />
           </div>
         </div>
-        <div className="max-w-48">
+        <div className="w-fit max-w-48 px-2">
           <span className="text-balance uppercase">{title}</span>
         </div>
       </DialogTrigger>
