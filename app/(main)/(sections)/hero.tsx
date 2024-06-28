@@ -10,10 +10,16 @@ function HeroSection({ hero }: { hero: Hero }) {
   return (
     <HeroLayout>
       <div className="flex h-full min-h-svh flex-col py-12 lg:container">
-        <Navbar />
-        <div className="flex h-full flex-1 flex-col justify-center space-y-24">
-          <HeroOverview overview={hero.overview} />
-          <FeaturesStepper features={hero.pageFeatures} />
+        <div className="flex h-full flex-1 flex-col justify-between">
+          <div className="flex h-full min-h-svh flex-col justify-between">
+            <Navbar />
+            <div className="flex h-full flex-1 items-center">
+              <HeroOverview overview={hero.overview} />
+            </div>
+          </div>
+          <div className="">
+            <FeaturesStepper features={hero.pageFeatures} />
+          </div>
         </div>
       </div>
     </HeroLayout>
@@ -23,8 +29,11 @@ function HeroSection({ hero }: { hero: Hero }) {
 function HeroOverview({ overview }: { overview: Overview }) {
   return (
     <div className="mt-16 space-y-16 text-white">
-      <div className="flex justify-end">
-        <Paragraph text={overview.description} />
+      <div className="flex flex-col items-end justify-end">
+        <div className="max-w-fit">
+          <Paragraph text={overview.description} />
+          {/* <hr className="mt-6 border-[#7E7E7E96]" /> */}
+        </div>
       </div>
       <div className="max-w-5xl space-y-8">
         <HeadingOne text={overview.title} />
