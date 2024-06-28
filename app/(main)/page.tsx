@@ -3,6 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
 import HeroSection from "./(sections)/hero";
 import IntroSection from "./(sections)/intro";
+import PowerPodSection from "./(sections)/power_pod";
 
 async function Main() {
   const data = await getData();
@@ -16,7 +17,7 @@ async function Main() {
     <>
       <HeroSection hero={hero} />
       <IntroSection intro={intro} />
-      {/* <PowerPodSection powerPod={powerPod}/> */}
+      <PowerPodSection powerPod={powerPod} />
       <SpeedInsights />
     </>
   );

@@ -11,7 +11,7 @@ function IntroSection({ intro }: { intro: Intro }) {
 
   return (
     <IntroLayout>
-      <div className="flex h-full min-h-svh items-center text-white lg:container">
+      <div className="flex h-full min-h-full items-center text-white lg:container">
         <div className="w-full space-y-16">
           <div className="flex max-w-5xl flex-col gap-6">
             <HeadingTwo text={overview.title} className="max-w-4xl" />
