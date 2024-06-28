@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { HTMLProps } from "react";
 import { Button } from "./ui/button";
 
 const CTA: React.FC<CTAProps & React.HTMLProps<HTMLAnchorElement>> = (
@@ -47,13 +47,9 @@ interface CTAProps {
   className?: string;
 }
 
-function CTASecondary({
-  text,
-  onClick,
-}: {
-  text: string;
-  onClick?: () => void;
-}) {
+const CTASecondary: React.FC<
+  CTASecondaryProps & HTMLProps<HTMLButtonElement>
+> = ({ text, onClick }: { text: string; onClick?: () => void }) => {
   return (
     <Button
       className="h-full max-w-fit rounded-full bg-white/10 px-12 backdrop-blur-sm"
@@ -62,6 +58,11 @@ function CTASecondary({
       {text}
     </Button>
   );
+};
+
+interface CTASecondaryProps {
+  text: string;
+  onClick?: () => void;
 }
 
 export default CTA;
