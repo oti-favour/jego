@@ -44,7 +44,7 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
       />
       <div
         ref={scrollContainerRef}
-        className="flex max-w-[100swh] justify-evenly gap-6 overflow-x-scroll scrollbar-hide"
+        className="flex max-w-full justify-evenly gap-6 overflow-x-scroll scrollbar-hide"
       >
         {features.map((feature, index) => (
           <div
