@@ -21,7 +21,7 @@ export const HeadingTwo: Heading = ({ text, className, ...props }) => {
   return (
     <h2
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        "font-gustavo text-4xl font-bold uppercase leading-[70px] md:text-[82px] lg:leading-[1]",
         className,
       )}
       {...props}
