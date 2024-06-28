@@ -4,11 +4,17 @@ export default defineType({
   name: "overview",
   type: "object",
   fields: [
-    defineField({
-      name: "pageName",
-      type: "string",
-      validation: (Rule) => Rule.min(3).max(100),
-    }),
+    defineField(
+      {
+        name: "pageName",
+        type: "string",
+        validation: (Rule) => Rule.required().min(3).max(100),
+        codegen: { required: true },
+      },
+      {
+        strict: false,
+      },
+    ),
     defineField(
       {
         name: "title",
