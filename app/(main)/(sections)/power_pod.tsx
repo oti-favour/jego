@@ -26,7 +26,10 @@ function PowerPodSection({ powerPod }: { powerPod: PowerPod }) {
                   </span>
                   <span>{restOfTitle}</span>
                 </HeadingThree>
-                <Paragraph text={overview.description} />
+                <Paragraph
+                  text={overview.description}
+                  className="text-[#CBD5E1]"
+                />
                 <div>
                   <CTA
                     text={overview.ctaText || ""}
