@@ -41,8 +41,8 @@ function PowerPodSection({ powerPod }: { powerPod: PowerPod }) {
                 <WatchVideo videoUrl={video.videoUrl} title={video.title} />
               </div>
             </div>
-            <div>
-              <div className="lg:max-w-[40svw]">
+            <div className="grid">
+              <div className="max-w-[90svw] lg:max-w-[40svw]">
                 <FeaturesStepper features={pageFeatures} />
               </div>
               {/* TODO: Scrol Icon*/}
