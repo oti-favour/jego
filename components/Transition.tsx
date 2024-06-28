@@ -20,7 +20,7 @@ function Transition({
     <>
       <div
         id="loading"
-        className="pointer-events-none fixed left-0 top-0 z-50 flex h-svh w-svw"
+        className="pointer-events-none fixed left-0 top-0 z-50 flex h-lvh w-svw"
         suppressHydrationWarning
       >
         <div className="w-full bg-loading bg-cover bg-fixed"></div>
