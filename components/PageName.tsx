@@ -1,6 +1,11 @@
 import { cn } from "@/lib/utils";
 
-const PageName: React.FC<PageNameProps> = ({ text, position, className }) => {
+const PageName: React.FC<PageNameProps> = ({
+  text,
+  position,
+  className,
+  lineClassName,
+}) => {
   return (
     <div
       className={cn(
@@ -16,7 +21,7 @@ const PageName: React.FC<PageNameProps> = ({ text, position, className }) => {
         )}
       >
         <span>{text}</span>
-        <hr className="h-px w-16 border-0 bg-[#64748B]" />
+        <hr className={cn("h-px w-16 border-0 bg-[#64748B]", lineClassName)} />
       </div>
     </div>
   );
@@ -25,6 +30,7 @@ const PageName: React.FC<PageNameProps> = ({ text, position, className }) => {
 type PageNameProps = {
   text: string;
   position?: "left" | "right";
+  lineClassName?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export default PageName;
