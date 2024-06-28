@@ -446,7 +446,7 @@ export type Overview = {
    *
    *
    */
-  pageName?: string;
+  pageName: string;
 
   /**
    * title — `string`
