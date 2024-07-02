@@ -26,10 +26,16 @@ const config = {
         power_pod: "url('/assets/power_pod.webp')",
         jego_pod: "url('/assets/jego_pod.webp')",
         lightning: "url('/assets/lightning.webp')",
+        mobile_app_bg: "url('/assets/mobile_app_bg.webp')",
       },
 
       backgroundSize: {
+        "15": "15%",
+        "25": "25%",
+        "40": "40%",
+        "50": "50%",
         "80": "80%",
+        "100": "100%",
         "150": "150%",
       },
 
