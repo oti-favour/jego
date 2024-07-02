@@ -12,7 +12,12 @@ const CTA: React.FC<CTAProps & React.HTMLProps<HTMLAnchorElement>> = (
       {props.children ? (
         props.children
       ) : (
-        <div className="flex max-w-fit items-center gap-4 rounded-full bg-white px-2 py-2 text-black">
+        <div
+          className={cn(
+            "flex max-w-fit items-center gap-4 rounded-full bg-white px-2 py-2 text-black",
+            props.className,
+          )}
+        >
           <span className={cn("ml-4")}>{props.text}</span>
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-darkOrange">
             {props.icon ? props.icon : <ChevronRight size={24} />}
