@@ -568,11 +568,11 @@ export type Product = {
   price?: number;
 
   /**
-   * image — `array`
+   * images — `array`
    *
    *
    */
-  image: Array<
+  images: Array<
     SanityKeyed<{
       _type: "image";
       asset: SanityReference<SanityImageAsset>;

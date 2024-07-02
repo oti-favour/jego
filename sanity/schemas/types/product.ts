@@ -32,7 +32,7 @@ export default defineType({
     }),
     defineField(
       {
-        name: "image",
+        name: "images",
         type: "array",
         of: [{ type: "image" }],
         validation: (Rule) => Rule.required().min(2),
