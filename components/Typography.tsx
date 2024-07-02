@@ -69,16 +69,81 @@ export const HeadingFour: Heading = ({
   );
 };
 
-export const Caption: ParagraphType = ({ text, className, ...props }) => {
+export const HeadingFive: Heading = ({
+  text,
+  className,
+  children,
+  ...props
+}) => {
   return (
-    <p className={cn("text-sm uppercase lg:text-base", className)}>{text}</p>
+    <h5
+      className={cn(
+        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        className,
+      )}
+      {...props}
+    >
+      {!children ? text : children}
+    </h5>
   );
 };
 
-export const Paragraph: ParagraphType = ({ text, className, ...props }) => {
+export const Caption: ParagraphType = ({
+  text,
+  className,
+  children,
+  ...props
+}) => {
   return (
-    <p className={cn("max-w-80 text-sm md:max-w-sm lg:text-base", className)}>
-      {text}
+    <p {...props} className={cn("text-sm uppercase lg:text-base", className)}>
+      {!children ? text : children}
     </p>
   );
 };
+
+export const Paragraph: ParagraphType = ({
+  text,
+  className,
+  children,
+  ...props
+}) => {
+  return (
+    <p
+      {...props}
+      className={cn("max-w-80 text-sm md:max-w-sm lg:text-base", className)}
+    >
+      {!children ? text : children}
+    </p>
+  );
+};
+
+type DynamicHeadingProps = {
+  level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  text?: string;
+  className?: string;
+  children?: React.ReactNode;
+} & React.HTMLAttributes<HTMLHeadingElement>;
+
+const DynamicHeading: React.FC<DynamicHeadingProps> = ({
+  level,
+  text,
+  className,
+  children,
+  ...props
+}) => {
+  const Tag = level;
+
+  return (
+    <Tag
+      className={cn(
+        "font-gustavo text-4xl font-bold uppercase leading-[113%] md:text-[82px]",
+        className,
+      )}
+      {...props}
+    >
+      {!children ? text : children}
+    </Tag>
+  );
+};
+
+export { DynamicHeading };
