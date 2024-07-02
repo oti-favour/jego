@@ -5,6 +5,7 @@ import ElectricVehiclesSection from "./(sections)/electric_vehicles";
 import HeroSection from "./(sections)/hero";
 import IntroSection from "./(sections)/intro";
 import JegoPodSection from "./(sections)/jego_pod";
+import MobileAppSection from "./(sections)/mobile_app";
 import PowerPodSection from "./(sections)/power_pod";
 
 async function Main() {
@@ -14,7 +15,7 @@ async function Main() {
     return notFound();
   }
 
-  const { hero, intro, powerPod, jegoPod, electricVehicles } = data;
+  const { hero, intro, powerPod, jegoPod, electricVehicles, mobileApp } = data;
   return (
     <>
       <HeroSection hero={hero} />
@@ -22,6 +23,7 @@ async function Main() {
       <PowerPodSection powerPod={powerPod} />
       <ElectricVehiclesSection electricVehicle={electricVehicles} />
       <JegoPodSection jegoPod={jegoPod} />
+      <MobileAppSection mobileApp={mobileApp} />
       <SpeedInsights />
     </>
   );
