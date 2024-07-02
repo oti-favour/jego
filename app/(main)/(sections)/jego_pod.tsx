@@ -1,7 +1,7 @@
 import CTA, { CTAPlain } from "@/components/CTA";
 import FeaturesStepper from "@/components/FeaturesStepper";
 import PageName from "@/components/PageName";
-import { HeadingFour, Paragraph } from "@/components/Typography";
+import { HeadingFive, Paragraph } from "@/components/Typography";
 import WatchVideo from "@/components/WatchVideo";
 import JegoPodLayout from "@/components/home/JegoPodLayout";
 import { JegoPod } from "@/types/generated-types";
@@ -28,9 +28,9 @@ function JegoPodSection({ jegoPod }: { jegoPod: JegoPod }) {
                 <span className="font-gustavo text-lg font-bold uppercase md:text-[42px]">
                   introducing
                 </span>
-                <HeadingFour className="text-white" text={""}>
+                <HeadingFive className="text-white" text={""}>
                   {overview.title}
-                </HeadingFour>
+                </HeadingFive>
               </div>
 
               <div className="flex flex-col gap-4 md:flex-row md:gap-6">
