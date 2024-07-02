@@ -1,13 +1,13 @@
 export type Heading = React.FC<
   {
-    text: string;
+    text?: string;
     className?: string;
   } & React.HTMLAttributes<HTMLHeadingElement>
 >;
 
 export type ParagraphType = React.FC<
   {
-    text: string;
+    text?: string;
     className?: string;
   } & React.HTMLAttributes<HTMLParagraphElement>
 >;
