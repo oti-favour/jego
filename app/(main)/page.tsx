@@ -1,6 +1,7 @@
 import getData from "@/hooks/getHomeData";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
+import ElectricVehiclesSection from "./(sections)/electric_vehicles";
 import HeroSection from "./(sections)/hero";
 import IntroSection from "./(sections)/intro";
 import JegoPodSection from "./(sections)/jego_pod";
@@ -13,12 +14,13 @@ async function Main() {
     return notFound();
   }
 
-  const { hero, intro, powerPod, jegoPod } = data;
+  const { hero, intro, powerPod, jegoPod, electricVehicles } = data;
   return (
     <>
       <HeroSection hero={hero} />
       <IntroSection intro={intro} />
       <PowerPodSection powerPod={powerPod} />
+      <ElectricVehiclesSection electricVehicle={electricVehicles} />
       <JegoPodSection jegoPod={jegoPod} />
       <SpeedInsights />
     </>
