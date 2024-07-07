@@ -21,14 +21,14 @@ const Logo: React.FC<LogoProps> = ({ ...props }) => {
   return (
     <Image
       src={
-        props.variant === "secondary"
+        props.src ?? props.variant === "secondary"
           ? "/assets/logo-black.svg"
           : "/assets/logo.svg"
       }
       alt="logo"
       width={size}
       height={size}
-      className={cn("w-auto h-auto", props.className)}
+      className={cn("h-auto w-auto", props.className)}
       {...props}
     />
   );
@@ -38,6 +38,7 @@ interface LogoProps {
   className?: string;
   variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
+  src?: string;
 }
 
 export default Logo;
