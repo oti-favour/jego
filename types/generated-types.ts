@@ -281,11 +281,18 @@ export type About = {
   };
 
   /**
-   * Members — `array`
+   * marquee — `string`
    *
    *
    */
-  Members: Array<SanityKeyed<Member>>;
+  marquee: string;
+
+  /**
+   * members — `array`
+   *
+   *
+   */
+  members: Array<SanityKeyed<Member>>;
 };
 
 export type Faqs = {
