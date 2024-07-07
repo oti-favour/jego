@@ -29,6 +29,8 @@ const config = {
         mobile_app_bg: "url('/assets/mobile_app_bg.webp')",
         faq: "url('/assets/faq.webp')",
         gallery: "url('/assets/gallery.svg')",
+        builtBy:
+          "linear-gradient(183deg, #763FFF 22.94%, #AB8AFF 117.31%), #BD00FF",
       },
 
       backgroundSize: {

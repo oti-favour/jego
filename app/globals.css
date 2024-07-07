@@ -95,3 +95,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
+#builtBy {
+  background: linear-gradient(183deg, #763fff 22.94%, #ab8aff 117.31%), #bd00ff;
+}
