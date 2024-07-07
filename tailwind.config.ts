@@ -28,6 +28,7 @@ const config = {
         lightning: "url('/assets/lightning.webp')",
         mobile_app_bg: "url('/assets/mobile_app_bg.webp')",
         faq: "url('/assets/faq.webp')",
+        gallery: "url('/assets/gallery.svg')",
       },
 
       backgroundSize: {
