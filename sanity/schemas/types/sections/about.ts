@@ -28,7 +28,18 @@ export default defineType({
     ),
     defineField(
       {
-        name: "Members",
+        name: "marquee",
+        type: "string",
+        validation: (Rule) => Rule.required(),
+        codegen: { required: true },
+      },
+      {
+        strict: false,
+      },
+    ),
+    defineField(
+      {
+        name: "members",
         type: "array",
         of: [{ type: "member" }],
         codegen: { required: true },
