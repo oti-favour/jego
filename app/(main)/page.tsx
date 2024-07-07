@@ -1,3 +1,4 @@
+import FooterSection from "@/components/Footer";
 import getData from "@/hooks/getHomeData";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
@@ -12,9 +13,9 @@ import MobileAppSection from "./(sections)/mobile_app";
 import PowerPodSection from "./(sections)/power_pod";
 
 async function Main() {
-  const data = await getData();
+  const { data, footer } = await getData();
 
-  if (!data) {
+  if (!data || !footer) {
     return notFound();
   }
 
@@ -29,6 +30,7 @@ async function Main() {
       <AboutUsSection about={data.about} />
       <FAQSection faqs={data.faqs} />
       <GallerySection gallery={data.gallery} />
+      <FooterSection footer={footer} />
       <SpeedInsights />
     </>
   );
