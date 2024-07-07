@@ -28,8 +28,7 @@ function MobileAppSection({ mobileApp }: { mobileApp: MobileApp }) {
               alt={heroImage.asset._ref}
               width={1920}
               height={1080}
-              layout="responsive"
-              className="w-full lg:max-w-screen-lg"
+              className="h-full w-full lg:max-w-screen-lg"
             />
             <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-white from-[17%] via-transparent to-transparent"></div>
           </div>
