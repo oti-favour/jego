@@ -1,6 +1,5 @@
 "use client";
 import { animatePageIn } from "@/animations";
-import { Home } from "@/types/generated-types";
 import { useGSAP } from "@gsap/react";
 
 function Transition({
@@ -8,7 +7,7 @@ function Transition({
   data,
 }: {
   children: React.ReactNode;
-  data: Home | null;
+  data: unknown | null;
 }) {
   useGSAP(() => {
     if (data) {
