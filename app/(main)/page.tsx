@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import AboutUsSection from "./(sections)/about_us";
 import ElectricVehiclesSection from "./(sections)/electric_vehicles";
 import FAQSection from "./(sections)/faq";
+import GallerySection from "./(sections)/gallery";
 import HeroSection from "./(sections)/hero";
 import IntroSection from "./(sections)/intro";
 import JegoPodSection from "./(sections)/jego_pod";
@@ -27,6 +28,7 @@ async function Main() {
       <MobileAppSection mobileApp={data.mobileApp} />
       <AboutUsSection about={data.about} />
       <FAQSection faqs={data.faqs} />
+      <GallerySection gallery={data.gallery} />
       <SpeedInsights />
     </>
   );
