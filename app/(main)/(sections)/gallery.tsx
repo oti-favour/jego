@@ -57,6 +57,7 @@ function GallerySection({ gallery }: { gallery: Gallery }) {
                     target="_blank"
                     passHref
                     className="group flex h-14 w-14 items-center justify-center rounded-full border border-white hover:bg-white"
+                    title={social.title}
                   >
                     <SVG
                       src={social.icon.svg}
