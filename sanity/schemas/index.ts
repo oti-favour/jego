@@ -3,6 +3,7 @@ import booking from "./docs/booking";
 import home from "./docs/home";
 import faq from "./types/faq";
 import member from "./types/member";
+import navItem from "./types/navItem";
 import newsletter from "./types/newsletter";
 import overview from "./types/overview";
 import pageFeatures from "./types/pageFeatures";
@@ -11,6 +12,7 @@ import product from "./types/product";
 import about from "./types/sections/about";
 import electricVehicle from "./types/sections/electricVehicle";
 import faqs from "./types/sections/faqs";
+import footer from "./types/sections/footer";
 import gallery from "./types/sections/gallery";
 import hero from "./types/sections/hero";
 import intro from "./types/sections/intro";
@@ -41,6 +43,8 @@ const schemas: SchemaTypeDefinition[] = [
   product,
   social,
   video,
+  navItem,
+  footer,
 
   //   booking,
   booking,
