@@ -27,6 +27,7 @@ const config = {
         jego_pod: "url('/assets/jego_pod.webp')",
         lightning: "url('/assets/lightning.webp')",
         mobile_app_bg: "url('/assets/mobile_app_bg.webp')",
+        faq: "url('/assets/faq.webp')",
       },
 
       backgroundSize: {
@@ -115,6 +116,9 @@ const config = {
         "2s": "2s",
         "3s": "3s",
         "4s": "4s",
+      },
+      boxShadow: {
+        accordion: "0px 25px 50px -12px rgba(15, 23, 42, 0.05)",
       },
     },
   },
