@@ -116,6 +116,83 @@ export interface Home extends SanityDocument {
 }
 
 /**
+ * Footer
+ *
+ *
+ */
+export interface Footer extends SanityDocument {
+  _type: "footer";
+
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * logo — `image`
+   *
+   *
+   */
+  logo: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * description — `text`
+   *
+   *
+   */
+  description: string;
+
+  /**
+   * navItems — `array`
+   *
+   *
+   */
+  navItems: Array<SanityKeyed<NavItem>>;
+
+  /**
+   * privacyPolicyURL — `url`
+   *
+   *
+   */
+  privacyPolicyURL: string;
+
+  /**
+   * termsAndConditionsURL — `url`
+   *
+   *
+   */
+  termsAndConditionsURL: string;
+
+  /**
+   * copyrightInfo — `text`
+   *
+   *
+   */
+  copyrightInfo: string;
+
+  /**
+   * builtByTitle — `string`
+   *
+   *
+   */
+  builtByTitle: string;
+
+  /**
+   * builtByURL — `url`
+   *
+   *
+   */
+  builtByURL: string;
+}
+
+/**
  * Booking Pods
  *
  * The booking pods of the site
@@ -644,7 +721,41 @@ export type Video = {
   videoUrl: string;
 };
 
-export type Documents = Home | Booking;
+export type NavItem = {
+  _type: "navItem";
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * links — `array`
+   *
+   *
+   */
+  links?: Array<
+    SanityKeyed<{
+      _type: "link";
+      /**
+       * title — `string`
+       *
+       *
+       */
+      title: string;
+
+      /**
+       * url — `string`
+       *
+       *
+       */
+      url: string;
+    }>
+  >;
+};
+
+export type Documents = Home | Footer | Booking;
 
 /**
  * This interface is a stub. It was referenced in your sanity schema but
