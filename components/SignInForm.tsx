@@ -26,15 +26,14 @@ const SignInForm: React.FC<SignInFormProps> = ({ ...props }) => {
 
       const result = await signIn("credentials", {
         password: password,
-        redirect: false,
+        redirectTo: "/investors",
       });
 
       if (result?.error) {
         throw new Error();
       }
 
-      ("use client");
-      router.push("/investors");
+      window.location.href = "/investors";
       router.refresh();
     } catch (error) {
       form.setError("password", {
