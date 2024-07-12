@@ -2,6 +2,7 @@
 import { NavbarConst } from "@/lib/consts";
 import { cn } from "@/lib/utils";
 import Menu from "@/public/assets/menu.svg";
+import MenuBlack from "@/public/assets/menuBlack.svg";
 import { NavItemProps } from "@/types/types";
 import {
   NavigationMenu,
@@ -24,16 +25,38 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 
-function Navbar() {
+function Navbar({
+  hideLogo = false,
+  desktopClassName,
+  mobileClassName,
+  menuColor,
+}: {
+  hideLogo?: boolean;
+  desktopClassName?: string;
+  mobileClassName?: string;
+  menuColor?: "black" | "white";
+}) {
   return (
-    <header className="lg:container">
-      <MobileNav components={NavbarConst} />
-      <DesktopNav components={NavbarConst} />
+    <header>
+      <MobileNav
+        components={NavbarConst}
+        className={mobileClassName}
+        menuColor={menuColor}
+      />
+      <DesktopNav
+        components={NavbarConst}
+        hideLogo={hideLogo}
+        className={desktopClassName}
+      />
     </header>
   );
 }
 
-function MobileNav({ components }: { components: NavItemProps[] }) {
+const MobileNav: React.FC<{
+  components: NavItemProps[];
+  className?: string;
+  menuColor?: "black" | "white";
+}> = ({ components, className, menuColor }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   function toggleMenu() {
@@ -47,7 +70,7 @@ function MobileNav({ components }: { components: NavItemProps[] }) {
         <NavigationMenuItem>
           <Sheet open={isOpen} onOpenChange={toggleMenu}>
             <SheetTrigger>
-              <Menu />
+              {menuColor === "black" ? <MenuBlack /> : <Menu />}
             </SheetTrigger>
             <SheetContent className="flex w-full flex-col gap-12 bg-brightTurquoise">
               <SheetHeader className="hidden">
@@ -73,7 +96,12 @@ function MobileNav({ components }: { components: NavItemProps[] }) {
                 </SheetClose>
               </div>
 
-              <NavigationMenuList className="grid divide-y divide-black/10 text-lg">
+              <NavigationMenuList
+                className={cn(
+                  "grid divide-y divide-black/10 text-lg",
+                  className,
+                )}
+              >
                 {components.map((component, index) => {
                   if (component.rounded) {
                     return (
@@ -105,22 +133,30 @@ function MobileNav({ components }: { components: NavItemProps[] }) {
       </NavigationMenuList>
     </NavigationMenu>
   );
-}
+};
 
-function DesktopNav({ components }: { components: NavItemProps[] }) {
+const DesktopNav: React.FC<{
+  components: NavItemProps[];
+  hideLogo?: boolean;
+  className?: string;
+}> = ({ components, hideLogo, className }) => {
   return (
     <NavigationMenu className="hidden w-full justify-between lg:flex">
-      <NavigationMenuList>
-        <NavItem href="/" icon={<Logo />} />
-      </NavigationMenuList>
-      <NavigationMenuList className="flex items-center gap-8 text-white">
+      {!hideLogo && (
+        <NavigationMenuList>
+          <NavItem href="/" icon={<Logo />} />
+        </NavigationMenuList>
+      )}
+      <NavigationMenuList
+        className={cn("flex items-center gap-8 text-white", className)}
+      >
         {components.map((component, index) => (
           <NavItem key={index} {...component} />
         ))}
       </NavigationMenuList>
     </NavigationMenu>
   );
-}
+};
 
 const NavItem: React.FC<NavItemProps & NavigationMenuItemProps> = ({
   href,
@@ -134,7 +170,7 @@ const NavItem: React.FC<NavItemProps & NavigationMenuItemProps> = ({
     <NavigationMenuItem className="" {...props}>
       <Link href={href} legacyBehavior passHref>
         <NavigationMenuLink
-          className={`${cn(
+          className={`w-full min-w-fit whitespace-nowrap ${cn(
             rounded && "rounded-full bg-brightTurquoise px-4 py-2 text-black",
             rounded && roundedClass,
           )} `}
