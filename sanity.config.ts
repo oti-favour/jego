@@ -28,11 +28,21 @@ export default defineConfig({
   ],
   document: {
     newDocumentOptions: (prev, { currentUser, creationContext }) => {
-      const { schemaType } = creationContext;
+      const { schemaType, type } = creationContext;
 
-      // if (schemaType === "page") {
-      //   return [];
-      // }
+      const isDisabled =
+        schemaType === "home" ||
+        schemaType === "investors" ||
+        schemaType === "booking" ||
+        schemaType === "footer";
+
+      if (isDisabled) {
+        return [];
+      }
+
+      if (type === "global") {
+        return [];
+      }
 
       return prev;
     },

@@ -20,6 +20,7 @@ const config = {
     extend: {
       backgroundImage: {
         loading: "url('/assets/loadingBg.webp')",
+        ray: "url('/assets/rays.webp')",
         hero_ray: "url('/assets/rays-left.webp')",
         hero_car: "url('/assets/home_car.webp')",
         intro: "url('/assets/intro_bg.webp')",
@@ -29,8 +30,6 @@ const config = {
         mobile_app_bg: "url('/assets/mobile_app_bg.webp')",
         faq: "url('/assets/faq.webp')",
         gallery: "url('/assets/gallery.svg')",
-        builtBy:
-          "linear-gradient(183deg, #763FFF 22.94%, #AB8AFF 117.31%), #BD00FF",
       },
 
       backgroundSize: {
@@ -122,6 +121,7 @@ const config = {
       },
       boxShadow: {
         accordion: "0px 25px 50px -12px rgba(15, 23, 42, 0.05)",
+        reportItem: "0px 45.439px 90.878px -21.811px rgba(15, 23, 42, 0.05)",
       },
     },
   },
