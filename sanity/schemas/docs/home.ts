@@ -18,9 +18,12 @@ export default defineType({
     { name: "gallery" },
   ],
   preview: {
-    select: {},
-    prepare: () => ({
+    select: {
+      media: "about.image",
+    },
+    prepare: ({ media }) => ({
       title: "Home Page",
+      media,
     }),
   },
   fields: [
