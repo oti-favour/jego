@@ -99,3 +99,12 @@
 #builtBy {
   background: linear-gradient(183deg, #763fff 22.94%, #ab8aff 117.31%), #bd00ff;
 }
+
+.truncate3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
