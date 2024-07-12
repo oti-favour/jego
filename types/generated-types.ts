@@ -116,6 +116,249 @@ export interface Home extends SanityDocument {
 }
 
 /**
+ * Booking Pods
+ *
+ * The booking pods of the site
+ */
+export interface Booking extends SanityDocument {
+  _type: "booking";
+
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title?: string;
+}
+
+/**
+ * Investors Page
+ *
+ *
+ */
+export interface Investors extends SanityDocument {
+  _type: "investors";
+
+  /**
+   * password — `string`
+   *
+   * Password for the investors page.
+   */
+  password: string;
+
+  /**
+   * passwordEnquiryEmail — `email`
+   *
+   * Email address to send password enquiries to
+   */
+  passwordEnquiryEmail?: Email;
+
+  /**
+   * home — `investorsHome`
+   *
+   * Overview of the investors page.
+   */
+  home: InvestorsHome;
+
+  /**
+   * reports — `object`
+   *
+   *
+   */
+  reports: {
+    _type: "reports";
+    /**
+     * title — `string`
+     *
+     *
+     */
+    title: string;
+
+    /**
+     * description — `text`
+     *
+     *
+     */
+    description: string;
+  };
+
+  /**
+   * news — `array`
+   *
+   * Select news articles to display on the investors page, in order of importance.
+   */
+  news: Array<SanityKeyedReference<News>>;
+}
+
+/**
+ * News
+ *
+ *
+ */
+export interface News extends SanityDocument {
+  _type: "news";
+
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * slug — `slug`
+   *
+   *
+   */
+  slug: { _type: "slug"; current: string };
+
+  /**
+   * image — `image`
+   *
+   *
+   */
+  image: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * newsType — `string`
+   *
+   *
+   */
+  newsType?: string;
+
+  /**
+   * content — `blockContent`
+   *
+   *
+   */
+  content: BlockContent;
+
+  /**
+   * summary — `text`
+   *
+   *
+   */
+  summary?: string;
+
+  /**
+   * createdAt — `datetime`
+   *
+   *
+   */
+  createdAt: string;
+
+  /**
+   * readMinutes — `number`
+   *
+   *
+   */
+  readMinutes?: number;
+
+  /**
+   * author — `author`
+   *
+   *
+   */
+  author: Author;
+
+  /**
+   * readCount — `number`
+   *
+   *
+   */
+  readCount: number;
+}
+
+/**
+ * reports
+ *
+ *
+ */
+export interface Reports extends SanityDocument {
+  _type: "reports";
+
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * slug — `slug`
+   *
+   *
+   */
+  slug: { _type: "slug"; current: string };
+
+  /**
+   * image — `image`
+   *
+   *
+   */
+  image: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * reportCategory — `string`
+   *
+   *
+   */
+  reportCategory: "finance" | "investors" | "partners" | "annual-reports";
+
+  /**
+   * content — `blockContent`
+   *
+   *
+   */
+  content: BlockContent;
+
+  /**
+   * summary — `text`
+   *
+   *
+   */
+  summary?: string;
+
+  /**
+   * createdAt — `datetime`
+   *
+   *
+   */
+  createdAt: string;
+
+  /**
+   * readMinutes — `number`
+   *
+   *
+   */
+  readMinutes?: number;
+
+  /**
+   * author — `author`
+   *
+   *
+   */
+  author: Author;
+
+  /**
+   * readCount — `number`
+   *
+   *
+   */
+  readCount: number;
+}
+
+/**
  * Footer
  *
  *
@@ -190,22 +433,6 @@ export interface Footer extends SanityDocument {
    *
    */
   builtByURL: string;
-}
-
-/**
- * Booking Pods
- *
- * The booking pods of the site
- */
-export interface Booking extends SanityDocument {
-  _type: "booking";
-
-  /**
-   * title — `string`
-   *
-   *
-   */
-  title?: string;
 }
 
 export type Hero = {
@@ -755,7 +982,89 @@ export type NavItem = {
   >;
 };
 
-export type Documents = Home | Footer | Booking;
+export type InvestorsHome = {
+  _type: "investorsHome";
+  /**
+   * image — `image`
+   *
+   * Main Image to display on the investors page.
+   */
+  image: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * overview — `overview`
+   *
+   * Overview of the investors page.
+   */
+  overview: Overview;
+};
+
+export type BlockContent = Array<
+  | SanityKeyed<SanityBlock>
+  | SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+
+      /**
+       * Alternative Text — `string`
+       *
+       *
+       */
+      alt?: string;
+    }>
+>;
+
+export type Author = {
+  _type: "author";
+  /**
+   * name — `string`
+   *
+   *
+   */
+  name: string;
+
+  /**
+   * image — `image`
+   *
+   *
+   */
+  image: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * role — `string`
+   *
+   *
+   */
+  role: string;
+
+  /**
+   * email — `email`
+   *
+   *
+   */
+  email?: Email;
+
+  /**
+   * bio — `text`
+   *
+   *
+   */
+  bio?: string;
+};
+
+export type Documents = Home | Booking | Investors | News | Reports | Footer;
 
 /**
  * This interface is a stub. It was referenced in your sanity schema but
