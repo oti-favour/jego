@@ -33,6 +33,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ ...props }) => {
         throw new Error();
       }
 
+      ("use client");
       router.push("/investors");
       router.refresh();
     } catch (error) {
