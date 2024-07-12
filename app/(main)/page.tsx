@@ -1,5 +1,5 @@
 import FooterSection from "@/components/Footer";
-import getData from "@/hooks/getHomeData";
+import getData from "@/hooks/getData";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
 import AboutUsSection from "./(sections)/about_us";
