@@ -11,10 +11,10 @@ function MobileAppSection({ mobileApp }: { mobileApp: MobileApp }) {
   const { overview, comingSoon, heroImage } = mobileApp;
   return (
     <MobileAppLayout>
-      <div className="space-y-8 px-4 pb-12 lg:container">
+      <div className="space-y-8 px-4 pb-12 pt-16 lg:container md:pt-2">
         <PageName
           text={overview.pageName}
-          className="text-[#475569]"
+          className="hidden text-[#475569] md:block"
           position="right"
         />
         <div className="pt-16 md:pt-12">
@@ -57,7 +57,7 @@ function MobileAppOverview({
         )}
         <DynamicHeading
           className="mt-4 text-center normal-case md:mt-2 lg:max-w-4xl"
-          level="h6"
+          level="p"
         >
           <span>{overview.title}</span>
         </DynamicHeading>
