@@ -17,25 +17,25 @@ const NewsItem: React.FC<NewsItemProps> = ({ newsItem, className, large }) => {
     <div
       className={cn(
         "grid gap-4 md:gap-6",
-        large && "lg:grid-cols-2",
+        large && "place-items-center lg:grid-cols-2",
         className,
       )}
     >
-      <div className={cn(!large && "max-h-64")}>
+      <div className={cn(!large ? "max-h-64" : "w-full md:w-3/5 lg:w-full")}>
         <Image
           src={sanityImageUrl(newsItem.image)}
           alt={newsItem.title}
           width={1920}
           height={1080}
-          className={cn("h-full w-full object-cover")}
+          className={cn("h-full w-full object-cover", large && "")}
         />
       </div>
-      <div className={cn("space-y-2", large && "lg:px-4")}>
+      <div className={cn("space-y-2", large && "space-y-4 lg:px-4")}>
         <NewsHeader {...newsItem} />
         <DynamicHeading
           level="p"
           className={cn(
-            "font-product text-lg font-bold leading-normal md:text-4xl md:leading-relaxed",
+            "font-product text-lg font-bold capitalize leading-normal md:text-4xl md:leading-relaxed",
             !large && "leading-none md:text-lg md:leading-tight",
           )}
         >
@@ -54,6 +54,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ newsItem, className, large }) => {
             <ChevronRight size={24} />
           </Link>
         </Paragraph>
+        {large && <AuthorItem {...newsItem.author} />}
       </div>
     </div>
   );
@@ -94,7 +95,7 @@ export const AuthorItem: React.FC<Author> = ({ image, name, role }) => {
             alt={name}
             width={32}
             height={32}
-            className="h-16 w-12 rounded-full object-cover"
+            className="h-16 w-16 rounded-full object-cover"
           />
         </div>
         <div className="flex h-fit flex-col">

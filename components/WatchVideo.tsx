@@ -7,14 +7,16 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 const WatchVideo: React.FC<WatchVideoProps> = ({ videoUrl, title }) => {
   return (
     <Dialog>
-      <DialogTrigger className="flex items-center">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
-          <div className="m-8 flex w-fit items-center justify-center rounded-full bg-[#E2E8F0] p-2">
-            <Play fill="black" />
+      <DialogTrigger className="flex items-center gap-2">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+          <div className="m-8 flex w-fit items-center justify-center rounded-full bg-[#B5B5B5CC]/80 p-3">
+            <Play fill="white" width={12} height={12} />
           </div>
         </div>
-        <div className="w-fit max-w-48 px-2">
-          <span className="text-balance uppercase">{title}</span>
+        <div className="flex w-fit max-w-48 lg:px-2">
+          <p className="truncate3 text-left text-sm uppercase md:text-base">
+            {title}
+          </p>
         </div>
       </DialogTrigger>
       <DialogContent

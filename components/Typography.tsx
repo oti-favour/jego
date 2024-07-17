@@ -5,7 +5,7 @@ const HeadingOne: Heading = ({ text, className, ...props }) => {
   return (
     <h1
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        "font-gustavoBold text-4xl font-bold uppercase leading-[1] md:text-[82px]",
         className,
       )}
       {...props}
@@ -21,7 +21,7 @@ export const HeadingTwo: Heading = ({ text, className, ...props }) => {
   return (
     <h2
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[70px] md:text-[82px] lg:leading-[1]",
+        "font-gustavoBold text-4xl font-bold uppercase leading-[70px] md:text-[82px] lg:leading-[1]",
         className,
       )}
       {...props}
@@ -40,7 +40,7 @@ export const HeadingThree: Heading = ({
   return (
     <h3
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        "font-gustavoBold text-4xl font-bold uppercase leading-[1] md:text-[82px]",
         className,
       )}
       {...props}
@@ -59,7 +59,7 @@ export const HeadingFour: Heading = ({
   return (
     <h4
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        "font-gustavoBold text-4xl font-bold uppercase leading-[1] md:text-[82px]",
         className,
       )}
       {...props}
@@ -78,7 +78,7 @@ export const HeadingFive: Heading = ({
   return (
     <h5
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[1] md:text-[82px]",
+        "font-gustavoBold text-4xl font-bold uppercase leading-[1] md:text-[82px]",
         className,
       )}
       {...props}
@@ -136,7 +136,7 @@ const DynamicHeading: React.FC<DynamicHeadingProps> = ({
   return (
     <Tag
       className={cn(
-        "font-gustavo text-4xl font-bold uppercase leading-[113%] md:text-[82px]",
+        "font-gustavoBold text-4xl font-bold uppercase leading-[113%] md:text-[82px]",
         className,
       )}
       {...props}

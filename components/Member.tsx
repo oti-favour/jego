@@ -33,7 +33,7 @@ const MembersCarousel: React.FC<MembersProps> = ({
           opts={{ loop: true }}
           plugins={[CLassNames()]}
         >
-          <CarouselContent className={`flex max-h-[50svh]`}>
+          <CarouselContent className={`flex md:max-h-[30svh] lg:max-h-[40svh]`}>
             <Members
               members={members}
               className="h-full w-fit max-w-fit flex-[0_0_70%]"
@@ -48,12 +48,10 @@ const MembersCarousel: React.FC<MembersProps> = ({
 const Members: React.FC<MembersProps> = ({ members, className, ...props }) => {
   const lengthOfMembers = members.length;
 
-  const basis = lengthOfMembers > 6 ? "md:basis-1/6" : "md:basis-1/4";
-
   return (
     <>
       {members.map((member, index) => (
-        <CarouselItem {...props} key={index} className={cn(``, className)}>
+        <CarouselItem {...props} key={index} className={cn(`group`, className)}>
           <MemberItem member={member} />
         </CarouselItem>
       ))}
@@ -73,7 +71,7 @@ const MemberItem: React.FC<MemberItemProps> = ({ member, ...props }) => {
         alt={member.image.asset._ref}
         width={1920}
         height={1080}
-        className="h-full w-full object-contain md:aspect-[9/16] md:w-64 md:object-fill"
+        className="h-full w-full object-contain md:min-h-full md:w-80 md:object-cover"
       />
       <div className="absolute bottom-0 left-0 m-8 min-w-fit bg-black/50 opacity-0 transition-all duration-3s group-hover:opacity-100">
         <div className="text-white">

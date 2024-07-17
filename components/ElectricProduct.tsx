@@ -11,8 +11,8 @@ function ElectricProductItem({ product }: { product: Product }) {
 
   return (
     <div className="h-full w-full">
-      <div className="grid place-items-center gap-8 lg:grid-cols-2 lg:gap-16">
-        <div className="relative h-fit w-fit">
+      <div className="grid place-items-center gap-8 py-12 lg:grid-cols-2 lg:gap-16">
+        <div className="group relative h-fit w-fit">
           {firstImage && (
             <Image
               src={sanityImageUrl(firstImage)}
@@ -22,8 +22,8 @@ function ElectricProductItem({ product }: { product: Product }) {
               className="max-w-full md:max-w-screen-sm lg:h-full lg:w-full lg:max-w-full"
             />
           )}
-          <div className="absolute left-0 top-0 h-full w-full bg-black/50 text-white">
-            <div className="flex h-full items-end px-4 pb-4">
+          <div className="absolute left-0 top-0 h-full w-full bg-black/50 text-white opacity-0 transition-all group-hover:opacity-100">
+            <div className="flex h-full items-end px-6 pb-6">
               <ProductInfo product={rest} />
             </div>
           </div>

@@ -29,14 +29,16 @@ const SampleImageComponent = ({
 
         // Avoid jumping around with aspect-ratio CSS property
         aspectRatio: width / height,
+        width: "100%",
       }}
     />
   );
 };
 
-const components = {
+export const components = {
   types: {
     image: SampleImageComponent,
+
     // Any other custom types you have in your content
     // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
   },
