@@ -12,16 +12,16 @@ function SignIn() {
           <div className="grid h-full w-full flex-1 place-items-center text-white">
             <div className="flex h-full flex-col items-center justify-around">
               <div className="flex h-full flex-col items-center justify-center">
-                <Caption>welcome to</Caption>
+                <Caption>welcome to the</Caption>
                 <DynamicHeading
                   level="h1"
-                  className="max-w-screen-sm text-center text-white lg:max-w-screen-lg"
+                  className="max-w-screen-sm text-center normal-case text-white lg:max-w-screen-lg"
                 >
-                  JéGO&apos;S{" "}
+                  JéGO{" "}
                   <span className="uppercase text-brightTurquoise">
-                    Investors{" "}
+                    INVESTOR{" "}
                   </span>
-                  portal
+                  PORTAL
                 </DynamicHeading>
                 <div className="mt-12">
                   <SignInForm />
