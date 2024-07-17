@@ -83,6 +83,13 @@
 }
 
 @font-face {
+  font-family: "Gustavo Bold";
+  src: url("/fonts/Gustavo_Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Product Sans";
   src: url("/fonts/ProductSans-Regular.ttf");
   font-weight: normal;
