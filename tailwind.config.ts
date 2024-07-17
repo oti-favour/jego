@@ -22,9 +22,10 @@ const config = {
         loading: "url('/assets/loadingBg.webp')",
         ray: "url('/assets/rays.webp')",
         hero_ray: "url('/assets/rays-left.webp')",
-        hero_car: "url('/assets/home_car.webp')",
+        hero_car: "url('/assets/home_car_crop.png')",
         intro: "url('/assets/intro_bg.webp')",
         power_pod: "url('/assets/power_pod.webp')",
+        power_pod_mobile: "url('/assets/power_pod_mobile.png')",
         jego_pod: "url('/assets/jego_pod.webp')",
         lightning: "url('/assets/lightning.webp')",
         mobile_app_bg: "url('/assets/mobile_app_bg.webp')",
@@ -46,6 +47,7 @@ const config = {
         gustavo: ["Gustavo", "sans-serif"],
         product: ["Product Sans", "sans-serif"],
         dela: ["Dela Gothic One", "sans-serif"],
+        gustavoBold: ["Gustavo Bold", "sans-serif"],
       },
 
       colors: {
