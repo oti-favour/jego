@@ -46,7 +46,7 @@ function GallerySection({ gallery }: { gallery: Gallery }) {
             </div>
 
             <div className="flex flex-col items-center gap-4">
-              <Caption className="text-2xl font-bold lg:text-3xl">
+              <Caption className="font-gustavoBold text-base md:text-2xl lg:text-3xl">
                 Socials
               </Caption>
               <div className="flex justify-center space-x-4">
