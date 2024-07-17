@@ -20,19 +20,19 @@ async function Main() {
   }
 
   return (
-    <>
+    <div className="scroll-smooth">
       <HeroSection hero={data.hero} />
+      <AboutUsSection about={data.about} />
       <IntroSection intro={data.intro} />
       <PowerPodSection powerPod={data.powerPod} />
       <ElectricVehiclesSection electricVehicle={data.electricVehicles} />
       <JegoPodSection jegoPod={data.jegoPod} />
       <MobileAppSection mobileApp={data.mobileApp} />
-      <AboutUsSection about={data.about} />
       <FAQSection faqs={data.faqs} />
       <GallerySection gallery={data.gallery} />
       <FooterSection footer={footer} />
       <SpeedInsights />
-    </>
+    </div>
   );
 }
 
