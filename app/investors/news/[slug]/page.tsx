@@ -33,13 +33,13 @@ async function NewsDetails({ params: { slug } }: { params: { slug: string } }) {
             </div> */}
             <DynamicHeading
               level="h1"
-              className="!font-product text-2xl font-bold md:text-4xl lg:max-w-screen-md"
+              className="!font-product text-2xl font-bold capitalize md:text-4xl lg:max-w-screen-md"
             >
               {news.title}
             </DynamicHeading>
           </div>
           <AuthorItem {...news.author} />
-          <div className="whitespace-pre-line lg:max-w-screen-md">
+          <div className="font-light leading-[30px] text-[#878787] lg:max-w-screen-md">
             <BlockContent value={news.content} />
           </div>
         </div>
