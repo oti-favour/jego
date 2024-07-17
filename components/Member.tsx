@@ -51,7 +51,11 @@ const Members: React.FC<MembersProps> = ({ members, className, ...props }) => {
   return (
     <>
       {members.map((member, index) => (
-        <CarouselItem {...props} key={index} className={cn(`group`, className)}>
+        <CarouselItem
+          {...props}
+          key={index}
+          className={cn(`group h-fit`, className)}
+        >
           <MemberItem member={member} />
         </CarouselItem>
       ))}
@@ -65,17 +69,17 @@ interface MembersProps extends HTMLAttributes<HTMLDivElement> {
 
 const MemberItem: React.FC<MemberItemProps> = ({ member, ...props }) => {
   return (
-    <div className="relative" {...props}>
+    <div className="relative h-fit max-h-fit" {...props}>
       <Image
         src={sanityImageUrl(member.image)}
         alt={member.image.asset._ref}
         width={1920}
         height={1080}
-        className="h-full w-full object-contain md:min-h-full md:w-80 md:object-cover"
+        className="h-full w-full object-contain md:aspect-[14/16] md:min-h-full md:w-80 md:object-cover"
       />
-      <div className="absolute bottom-0 left-0 m-8 min-w-fit bg-black/50 opacity-0 transition-all duration-3s group-hover:opacity-100">
-        <div className="text-white">
-          <Caption className="font-gustavo text-2xl font-bold lg:text-2xl">
+      <div className="absolute bottom-12 left-0 m-8 min-w-fit bg-black/50 opacity-0 transition-all duration-3s group-hover:opacity-100 2xl:bottom-0">
+        <div className="p-2 text-white">
+          <Caption className="font-gustavo text-lg font-bold lg:text-2xl">
             {member.name}
           </Caption>
           <Paragraph>{member.role}</Paragraph>
