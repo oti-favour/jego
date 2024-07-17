@@ -9,15 +9,15 @@ import { Hero, Overview } from "@/types/generated-types";
 function HeroSection({ hero }: { hero: Hero }) {
   return (
     <HeroLayout>
-      <div className="flex h-full min-h-svh flex-col py-12 lg:container">
+      <div className="flex h-full min-h-svh flex-col pb-12 lg:container">
         <div className="flex h-full flex-1 flex-col justify-between">
-          <div className="flex h-full min-h-svh flex-col justify-between">
+          <div className="flex h-full min-h-svh flex-col justify-between py-8 md:py-12">
             <Navbar />
-            <div className="flex h-full flex-1 items-center">
+            <div className="flex h-full">
               <HeroOverview overview={hero.overview} />
             </div>
           </div>
-          <div className="">
+          <div className="pb-20 pt-8 md:pt-12">
             <FeaturesStepper features={hero.pageFeatures} />
           </div>
         </div>
