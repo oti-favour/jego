@@ -12,7 +12,10 @@ function ElectricVehiclesSection({
   const { overview, products } = electricVehicle;
 
   return (
-    <div className="flex h-full min-h-svh flex-col space-y-12 px-4 pb-4 lg:container md:pb-12">
+    <div
+      className="flex h-full min-h-svh flex-col space-y-12 px-4 pb-4 pt-12 lg:container md:pb-12"
+      id="electric-vehicles"
+    >
       <PageName text={overview.pageName} className="text-black" />
       <div className="flex flex-col gap-8">
         <OverviewHeading overview={overview} />
@@ -36,7 +39,7 @@ function OverviewHeading({ overview }: { overview: Overview }) {
   return (
     <div className="lg:flex">
       <DynamicHeading
-        level="h4"
+        level="h5"
         className="text-4xl leading-[113%] lg:text-[58px]"
       >
         {beforeLastTwoWords}{" "}
