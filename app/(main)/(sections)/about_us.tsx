@@ -11,23 +11,29 @@ function AboutUsSection({ about }: { about: About }) {
   const { overview, image, members } = about;
 
   return (
-    <div className="-z-10 h-full min-h-svh w-full">
-      <div className="space-y-8 px-4 lg:container lg:space-y-16">
+    <div
+      className="-z-10 h-full min-h-svh w-full space-y-28 pb-32 pt-12"
+      id="about-us"
+    >
+      <div
+        className="space-y-8 px-5 lg:container lg:space-y-16"
+        id={"about-us"}
+      >
         <PageName text={overview.pageName} className="text-[#64748B]" />
         <div className="space-y-8 pb-12">
           <AboutUsOverview overview={overview} image={image} />
         </div>
       </div>
-      <div className="pointer-events-none -mt-12 flex overflow-x-hidden lg:-mt-32 2xl:-mt-40">
+      {/* <div className="pointer-events-none -mt-12 flex overflow-x-hidden lg:-mt-32 2xl:-mt-40">
         <div className="inline-block h-fit w-full animate-marquee whitespace-nowrap">
           <div className="-z-50 h-fit font-dela text-[167px] text-[#E8E8E8] lg:text-[267px]">
             <div className="-rotate-[4.975deg]">JeGO . JeGO</div>
           </div>
         </div>
-      </div>
-      <div className="select-none space-y-8 px-4 lg:container">
+      </div> */}
+      <div className="mb-12 select-none space-y-8 px-4 lg:container">
         <Caption
-          className="font-gustavo font-bold lg:text-5xl"
+          className="font-gustavoBold text-3xl lg:text-5xl"
           text={"the corporate team"}
         />
 
@@ -49,8 +55,8 @@ function AboutUsOverview({
 
   return (
     <div className="grid gap-8 lg:grid-cols-2 lg:gap-0">
-      <div className="flex flex-col items-center space-y-8 lg:hidden">
-        <DynamicHeading level="h1" className="text-black">
+      <div className="flex flex-col space-y-8 md:items-center lg:hidden">
+        <DynamicHeading level="h2" className="normal-case text-black">
           {overview.title}
         </DynamicHeading>
         <Paragraph className="whitespace-pre-line leading-loose text-[#64748B]">
