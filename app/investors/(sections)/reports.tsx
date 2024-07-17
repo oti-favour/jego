@@ -10,7 +10,7 @@ async function ReportsSection({ reports }: { reports: Investors["reports"] }) {
   }
 
   return (
-    <div className="h-full min-h-svh space-y-8 bg-[#F7F7F7] px-4">
+    <div className="h-full min-h-svh space-y-8 px-4">
       <div className="py-12 lg:container lg:space-y-12">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:gap-0">
           <DynamicHeading

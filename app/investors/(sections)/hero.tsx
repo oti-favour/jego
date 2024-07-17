@@ -10,7 +10,7 @@ import Link from "next/link";
 function InvestorsHeroSection({ home }: { home: Investors["home"] }) {
   const { overview, image } = home;
   return (
-    <div className="p-4 lg:container lg:h-svh">
+    <div className="mb-32 p-4 lg:h-svh">
       <div className="space-y-12 md:space-y-16 lg:space-y-0">
         <div className="mt-2 lg:mt-8 lg:hidden">
           <Navbar hideLogo desktopClassName="text-black" menuColor="black" />
@@ -20,15 +20,15 @@ function InvestorsHeroSection({ home }: { home: Investors["home"] }) {
             {overview.title}
           </DynamicHeading>
         </div>
-        <div className="flex flex-col-reverse gap-12 lg:h-[96svh] lg:flex-row">
-          <div className="relative flex justify-end rounded-xl">
-            <div className="relative flex w-fit">
+        <div className="flex flex-col-reverse gap-12 lg:h-[96svh] lg:flex-row lg:gap-16">
+          <div className="relative flex basis-2/5 rounded-xl">
+            <div className="relative flex w-full">
               <Image
                 src={sanityImageUrl(image)}
                 alt={overview.title}
                 width={1920}
                 height={1080}
-                className="aspect-video h-auto w-auto rounded-xl object-cover lg:aspect-[9/16] lg:h-full"
+                className="h-auto w-full rounded-xl object-cover lg:h-full"
               />
               <Link href={"/"}>
                 <Logo
@@ -39,7 +39,7 @@ function InvestorsHeroSection({ home }: { home: Investors["home"] }) {
               <div className="absolute left-0 top-0 h-full w-full rounded-xl bg-black/50"></div>
             </div>
           </div>
-          <div className="flex grow basis-3/5 flex-col justify-between">
+          <div className="flex grow flex-col justify-between">
             <div className="mt-2 hidden w-full lg:mt-8 lg:block">
               <Navbar
                 hideLogo
