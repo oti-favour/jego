@@ -1,7 +1,7 @@
 function PowerPodLayout({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="min-h-full bg-power_pod bg-cover bg-center bg-no-repeat">
-      <div className="h-full min-h-svh w-full bg-gradient-to-r from-black via-black/50 to-black/50">
+    <div className="bg-power_pod_mobile min-h-full bg-cover bg-center bg-no-repeat lg:bg-power_pod">
+      <div className="h-full min-h-svh w-full bg-gradient-to-l from-black/50 via-black/50 to-black/50 lg:bg-gradient-to-r lg:from-black">
         {children}
       </div>
     </div>
