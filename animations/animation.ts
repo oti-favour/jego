@@ -3,7 +3,6 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 
 export function animatePageIn() {
   const ref = document.getElementById("loading");
-  const body = document.querySelector("body");
 
   if (!ref) return;
   const tl = gsap.timeline();
@@ -26,6 +25,8 @@ export function animatePageIn() {
       },
     })
     .set("body", { overflow: "auto" });
+
+  return tl;
 }
 
 export function animatePageOut(href: string, router: AppRouterInstance) {
