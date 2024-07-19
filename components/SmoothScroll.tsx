@@ -34,6 +34,7 @@ const MomentumScroll = ({ children }: MomentumScrollProps): JSX.Element => {
       resizeScrollableHeight(entries),
     );
     scrollRef.current && resizeObserver.observe(scrollRef.current);
+
     return () => resizeObserver.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -58,7 +59,7 @@ const MomentumScroll = ({ children }: MomentumScrollProps): JSX.Element => {
   const springNegativeScrollY = useSpring(negativeScrollY, springPhysics);
 
   return (
-    <div className="relative">
+    <div className="relative scroll-smooth">
       <motion.div
         ref={scrollRef}
         style={{ y: springNegativeScrollY }}
