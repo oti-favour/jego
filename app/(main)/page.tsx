@@ -1,4 +1,5 @@
 import FooterSection from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 import getData from "@/hooks/getData";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
@@ -20,7 +21,7 @@ async function Main() {
   }
 
   return (
-    <div className="scroll-smooth">
+    <SmoothScroll>
       <HeroSection hero={data.hero} />
       <AboutUsSection about={data.about} />
       <IntroSection intro={data.intro} />
@@ -32,7 +33,7 @@ async function Main() {
       <GallerySection gallery={data.gallery} />
       <FooterSection footer={footer} />
       <SpeedInsights />
-    </div>
+    </SmoothScroll>
   );
 }
 
