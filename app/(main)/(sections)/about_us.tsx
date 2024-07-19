@@ -12,7 +12,7 @@ function AboutUsSection({ about }: { about: About }) {
 
   return (
     <div
-      className="-z-10 h-full min-h-svh w-full space-y-28 pb-32 pt-12"
+      className="-z-10 h-full min-h-svh w-full space-y-0.5 pb-32 pt-12"
       id="about-us"
     >
       <div
@@ -20,18 +20,16 @@ function AboutUsSection({ about }: { about: About }) {
         id={"about-us"}
       >
         <PageName text={overview.pageName} className="text-[#64748B]" />
-        <div className="space-y-8 pb-12">
-          <AboutUsOverview overview={overview} image={image} />
-        </div>
+        <AboutUsOverview overview={overview} image={image} />
       </div>
-      {/* <div className="pointer-events-none -mt-12 flex overflow-x-hidden lg:-mt-32 2xl:-mt-40">
+      <div className="pointer-events-none -mt-12 flex overflow-x-hidden lg:-mt-36 2xl:-mt-40">
         <div className="inline-block h-fit w-full animate-marquee whitespace-nowrap">
           <div className="-z-50 h-fit font-dela text-[167px] text-[#E8E8E8] lg:text-[267px]">
-            <div className="-rotate-[4.975deg]">JeGO . JeGO</div>
+            <div className="-rotate-[4.975deg]">JéGO . JéGO</div>
           </div>
         </div>
-      </div> */}
-      <div className="mb-12 select-none space-y-8 px-4 lg:container">
+      </div>
+      <div className="animate mb-12 select-none space-y-8 px-4 lg:container">
         <Caption
           className="font-gustavoBold text-3xl lg:text-5xl"
           text={"the corporate team"}
