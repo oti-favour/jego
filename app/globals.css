@@ -124,3 +124,7 @@
   overflow: hidden;
   will-change: transform;
 }
+
+html {
+  scroll-behavior: smooth;
+}
