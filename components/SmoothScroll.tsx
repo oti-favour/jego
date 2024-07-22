@@ -35,6 +35,22 @@ const MomentumScroll = ({ children }: MomentumScrollProps): JSX.Element => {
     );
     scrollRef.current && resizeObserver.observe(scrollRef.current);
 
+    try {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+
+          if (element) {
+            window.scrollTo({
+              top: element.getBoundingClientRect().top + window.scrollY,
+              behavior: "smooth",
+            });
+          }
+        }, 2500);
+      }
+    } catch (error) {}
+
     return () => resizeObserver.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
