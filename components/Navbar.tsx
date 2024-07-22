@@ -11,6 +11,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@radix-ui/react-navigation-menu";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import { X } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -30,24 +31,41 @@ function Navbar({
   desktopClassName,
   mobileClassName,
   menuColor,
+  isFixed = true,
+  className,
+  scrollClassName,
 }: {
   hideLogo?: boolean;
   desktopClassName?: string;
   mobileClassName?: string;
   menuColor?: "black" | "white";
+  isFixed?: boolean;
+  className?: string;
+  scrollClassName?: string;
 }) {
+  const { scrollY } = useScroll();
+  const [progress, setProgress] = React.useState(0);
+
+  useMotionValueEvent(scrollY, "change", (latestScrollY) => {
+    setProgress(latestScrollY);
+  });
+
   return (
-    <header>
-      <MobileNav
-        components={NavbarConst}
-        className={mobileClassName}
-        menuColor={menuColor}
-      />
-      <DesktopNav
-        components={NavbarConst}
-        hideLogo={hideLogo}
-        className={desktopClassName}
-      />
+    <header className={cn(isFixed && "fixed top-0 isolate z-[30] w-full")}>
+      <div className={cn(isFixed && "px-4 lg:container", className)}>
+        <MobileNav
+          components={NavbarConst}
+          className={mobileClassName}
+          menuColor={menuColor}
+          scrollClassName={progress > 250 ? scrollClassName : ""}
+        />
+        <DesktopNav
+          components={NavbarConst}
+          hideLogo={hideLogo}
+          className={desktopClassName}
+          scrollClassName={progress > 250 ? scrollClassName : ""}
+        />
+      </div>
     </header>
   );
 }
@@ -56,7 +74,8 @@ const MobileNav: React.FC<{
   components: NavItemProps[];
   className?: string;
   menuColor?: "black" | "white";
-}> = ({ components, className, menuColor }) => {
+  scrollClassName?: string;
+}> = ({ components, className, menuColor, scrollClassName }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   function toggleMenu() {
@@ -64,7 +83,7 @@ const MobileNav: React.FC<{
   }
 
   return (
-    <NavigationMenu className="w-full lg:hidden">
+    <NavigationMenu className={cn("w-full lg:hidden", scrollClassName)}>
       <NavigationMenuList className="flex w-full items-center justify-between">
         <NavItem href="/" icon={<Logo />} />
         <NavigationMenuItem>
@@ -139,9 +158,15 @@ const DesktopNav: React.FC<{
   components: NavItemProps[];
   hideLogo?: boolean;
   className?: string;
-}> = ({ components, hideLogo, className }) => {
+  scrollClassName?: string;
+}> = ({ components, hideLogo, className, scrollClassName }) => {
   return (
-    <NavigationMenu className="hidden w-full justify-between lg:flex">
+    <NavigationMenu
+      className={cn(
+        "hidden w-full items-center justify-between lg:flex",
+        scrollClassName,
+      )}
+    >
       {!hideLogo && (
         <NavigationMenuList>
           <NavItem href="/" icon={<Logo />} />
@@ -166,10 +191,24 @@ const NavItem: React.FC<NavItemProps & NavigationMenuItemProps> = ({
   roundedClass,
   ...props
 }) => {
+  function ScrollToElement({ hash }: { hash: string }) {
+    try {
+      const element = document.querySelector(hash.replace("/", ""));
+
+      if (element) {
+        window.scrollTo({
+          top: element.getBoundingClientRect().top + window.scrollY,
+          behavior: "smooth",
+        });
+      }
+    } catch (error) {}
+  }
+
   return (
     <NavigationMenuItem className="" {...props}>
       <Link href={href} legacyBehavior passHref>
         <NavigationMenuLink
+          onClick={() => ScrollToElement({ hash: href })}
           className={`w-full min-w-fit whitespace-nowrap ${cn(
             rounded && "rounded-full bg-brightTurquoise px-4 py-2 text-black",
             rounded && roundedClass,
