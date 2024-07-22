@@ -19,3 +19,8 @@ export interface NavItemProps {
   rounded?: boolean;
   roundedClass?: string;
 }
+
+export interface AnimationProps {
+  children: React.ReactNode;
+  className?: string;
+}
