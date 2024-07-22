@@ -13,7 +13,12 @@ function InvestorsHeroSection({ home }: { home: Investors["home"] }) {
     <div className="mb-32 p-4 lg:h-svh">
       <div className="space-y-12 md:space-y-16 lg:space-y-0">
         <div className="mt-2 lg:mt-8 lg:hidden">
-          <Navbar hideLogo desktopClassName="text-black" menuColor="black" />
+          <Navbar
+            hideLogo
+            desktopClassName="text-black"
+            menuColor="black"
+            isFixed={false}
+          />
         </div>
         <div className="max-w-lg lg:hidden">
           <DynamicHeading className="text-4xl md:text-5xl" level="h1">
@@ -45,6 +50,7 @@ function InvestorsHeroSection({ home }: { home: Investors["home"] }) {
                 hideLogo
                 desktopClassName="text-black"
                 menuColor="black"
+                isFixed={false}
               />
             </div>
             <div className="hidden h-full flex-1 grow lg:block">
