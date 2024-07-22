@@ -1,11 +1,10 @@
-import { components } from "@/components/BlockContent";
+import BlockContent from "@/components/BlockContent";
 import FooterSection from "@/components/Footer";
 import GoBack from "@/components/GoBack";
 import Navbar from "@/components/Navbar";
 import { AuthorItem, NewsHeader } from "@/components/NewsItem";
 import { DynamicHeading } from "@/components/Typography";
 import { getInvestorsData, getReportFromSlug } from "@/hooks/getData";
-import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
 
 async function NewsDetails({ params: { slug } }: { params: { slug: string } }) {
@@ -18,7 +17,7 @@ async function NewsDetails({ params: { slug } }: { params: { slug: string } }) {
   return (
     <div className="space-y-12">
       <div className="container mt-2 space-y-8 lg:mt-8">
-        <Navbar desktopClassName="text-black" />
+        <Navbar desktopClassName="text-black" isFixed={false} />
         <div className="mx-auto w-fit space-y-8">
           <GoBack href="/investors" />
           <div className="space-y-2">
@@ -37,7 +36,7 @@ async function NewsDetails({ params: { slug } }: { params: { slug: string } }) {
           </div>
           <AuthorItem {...report.author} />
           <div className="whitespace-pre-line font-light leading-[30px] text-[#878787] lg:max-w-screen-md">
-            <PortableText value={report.content} components={components} />
+            <BlockContent value={report.content} />
           </div>
         </div>
       </div>
