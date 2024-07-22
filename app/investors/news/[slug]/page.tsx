@@ -17,7 +17,7 @@ async function NewsDetails({ params: { slug } }: { params: { slug: string } }) {
   return (
     <div className="space-y-12">
       <div className="container mt-2 space-y-8 lg:mt-8">
-        <Navbar desktopClassName="text-black" />
+        <Navbar desktopClassName="text-black" isFixed={false} />
         <div className="mx-auto w-fit space-y-8">
           <GoBack href="/investors" />
           <div className="space-y-2">
