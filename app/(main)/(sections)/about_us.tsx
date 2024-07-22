@@ -1,3 +1,4 @@
+import { FadeInRotate, SpringUp } from "@/components/Animation";
 import { CTAPlain } from "@/components/CTA";
 import MembersCarousel from "@/components/Member";
 import PageName from "@/components/PageName";
@@ -35,7 +36,9 @@ function AboutUsSection({ about }: { about: About }) {
           text={"the corporate team"}
         />
 
-        <MembersCarousel members={members} />
+        <SpringUp>
+          <MembersCarousel members={members} />
+        </SpringUp>
       </div>
     </div>
   );
@@ -69,16 +72,18 @@ function AboutUsOverview({
       <div></div>
       {image && (
         <div className="relative z-50">
-          <div className="relative mx-auto max-w-[90%] md:max-w-[90%] lg:mx-0 lg:max-w-[90%] 2xl:max-w-full">
-            <Image
-              src={sanityImageUrl(image)}
-              alt={image.asset._ref}
-              width={1920}
-              height={1080}
-              className="h-full w-full"
-            />
-            <div className="absolute left-0 top-0 -z-50 h-full w-full rotate-[8.2deg] bg-[#FFF5EB]"></div>
-          </div>
+          <FadeInRotate from={5} opacityFrom={0.5}>
+            <div className="relative mx-auto max-w-[90%] md:max-w-[90%] lg:mx-0 lg:max-w-[90%] 2xl:max-w-full">
+              <Image
+                src={sanityImageUrl(image)}
+                alt={image.asset._ref}
+                width={1920}
+                height={1080}
+                className="h-full w-full"
+              />
+              <div className="absolute left-0 top-0 -z-50 h-full w-full rotate-[8.2deg] bg-[#FFF5EB]"></div>
+            </div>
+          </FadeInRotate>
           <div className="absolute right-[97.5%] top-1/2 hidden w-full -translate-y-1/2 space-y-12 lg:block">
             <div className="flex justify-end text-end">
               <DynamicHeading
