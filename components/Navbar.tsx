@@ -52,18 +52,22 @@ function Navbar({
 
   return (
     <header className={cn(isFixed && "fixed top-0 isolate z-[30] w-full")}>
-      <div className={cn(isFixed && "px-4 lg:container", className)}>
+      <div className={cn(isFixed && "", className)}>
         <MobileNav
           components={NavbarConst}
           className={mobileClassName}
           menuColor={menuColor}
-          scrollClassName={progress > 250 ? scrollClassName : ""}
+          scrollClassName={
+            progress > 250 ? scrollClassName : "px-4 py-2 md:py-4"
+          }
         />
         <DesktopNav
           components={NavbarConst}
           hideLogo={hideLogo}
           className={desktopClassName}
-          scrollClassName={progress > 250 ? scrollClassName : ""}
+          scrollClassName={
+            progress > 250 ? scrollClassName : "px-4 py-2 md:py-4"
+          }
         />
       </div>
     </header>
