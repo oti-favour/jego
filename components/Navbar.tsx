@@ -167,7 +167,7 @@ const DesktopNav: React.FC<{
   return (
     <NavigationMenu
       className={cn(
-        "hidden w-full items-center justify-between lg:flex",
+        "hidden w-full items-center justify-between lg:container lg:flex",
         scrollClassName,
       )}
     >
