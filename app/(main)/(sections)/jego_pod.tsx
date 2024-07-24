@@ -33,7 +33,7 @@ function JegoPodSection({ jegoPod }: { jegoPod: JegoPod }) {
                   introducing
                 </span>
                 <DynamicHeading
-                  level="h6"
+                  level="h4"
                   className="normal-case text-white"
                   text={""}
                 >

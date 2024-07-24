@@ -39,7 +39,7 @@ function OverviewHeading({ overview }: { overview: Overview }) {
   return (
     <div className="lg:flex">
       <DynamicHeading
-        level="h5"
+        level="h3"
         className="text-4xl leading-[113%] lg:text-[58px]"
       >
         {beforeLastTwoWords}{" "}

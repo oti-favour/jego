@@ -21,7 +21,7 @@ function PowerPodSection({ powerPod }: { powerPod: PowerPod }) {
               <div className="flex flex-col-reverse gap-64 md:flex-col lg:gap-0">
                 <div className="max-w-4xl space-y-8">
                   <DynamicHeading
-                    level="h4"
+                    level="h2"
                     text={firstWord}
                     className="space-x-4 text-white"
                   >

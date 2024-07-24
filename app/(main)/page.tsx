@@ -23,11 +23,11 @@ async function Main() {
   return (
     <SmoothScroll>
       <HeroSection hero={data.hero} />
-      <AboutUsSection about={data.about} />
-      <IntroSection intro={data.intro} />
       <PowerPodSection powerPod={data.powerPod} />
       <ElectricVehiclesSection electricVehicle={data.electricVehicles} />
       <JegoPodSection jegoPod={data.jegoPod} />
+      <AboutUsSection about={data.about} />
+      <IntroSection intro={data.intro} />
       <MobileAppSection mobileApp={data.mobileApp} />
       <FAQSection faqs={data.faqs} />
       <GallerySection gallery={data.gallery} />

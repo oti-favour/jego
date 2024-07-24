@@ -57,7 +57,7 @@ function AboutUsOverview({
   return (
     <div className="grid gap-8 lg:grid-cols-2 lg:gap-0">
       <div className="flex flex-col space-y-8 md:items-center lg:hidden">
-        <DynamicHeading level="h2" className="normal-case text-black">
+        <DynamicHeading level="h5" className="normal-case text-black">
           {overview.title}
         </DynamicHeading>
         <Paragraph className="whitespace-pre-line leading-loose text-[#64748B]">

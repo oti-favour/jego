@@ -15,7 +15,7 @@ function IntroSection({ intro }: { intro: Intro }) {
         <div className="w-full space-y-16">
           <div className="flex max-w-5xl flex-col gap-6">
             <DynamicHeading
-              level="h3"
+              level="h6"
               text={overview.title}
               className="max-w-4xl"
             />
