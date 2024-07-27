@@ -19,7 +19,7 @@ import {
 } from "@/utils/queries/queries";
 import { cache } from "react";
 
-export const getHomeData = async () => {
+export const getHomeData = cache(async () => {
   "use server";
   const data = await fetchDocument<Home>({
     query: GetHomePage,
@@ -30,7 +30,7 @@ export const getHomeData = async () => {
   });
 
   return { data, footer };
-};
+});
 
 export default getHomeData;
 
