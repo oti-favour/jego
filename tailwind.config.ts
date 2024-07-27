@@ -45,9 +45,10 @@ const config = {
 
       fontFamily: {
         gustavo: ["Gustavo", "sans-serif"],
-        product: ["Product Sans", "sans-serif"],
-        dela: ["Dela Gothic One", "sans-serif"],
         gustavoBold: ["Gustavo Bold", "sans-serif"],
+        product: ["Product Sans", "sans-serif"],
+        productBold: ["Product Sans Bold", "sans-serif"],
+        dela: ["Dela Gothic One", "sans-serif"],
       },
 
       colors: {
@@ -124,6 +125,7 @@ const config = {
       boxShadow: {
         accordion: "0px 25px 50px -12px rgba(15, 23, 42, 0.05)",
         reportItem: "0px 45.439px 90.878px -21.811px rgba(15, 23, 42, 0.05)",
+        productDetail: "0px 25px 50px -12px rgba(15, 23, 42, 0.05)",
       },
     },
   },
