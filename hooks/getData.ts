@@ -98,7 +98,6 @@ export const getProductFromRef = cache(async (ref: string) => {
     query: GetProductFromRef,
     ref,
   });
-  console.log(ref);
 
   return product;
 });
