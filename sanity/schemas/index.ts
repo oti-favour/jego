@@ -4,6 +4,7 @@ import home from "./docs/home";
 import investors from "./docs/investors";
 import author from "./types/author";
 import blockContent from "./types/blockContent";
+import customization from "./types/customization";
 import faq from "./types/faq";
 import member from "./types/member";
 import navItem from "./types/navItem";
@@ -12,7 +13,9 @@ import newsletter from "./types/newsletter";
 import overview from "./types/overview";
 import pageFeatures from "./types/pageFeatures";
 import partners from "./types/partners";
+import pricing from "./types/pricing";
 import product from "./types/product";
+import productObject from "./types/productObject";
 import reports from "./types/report";
 import about from "./types/sections/about";
 import electricVehicle from "./types/sections/electricVehicle";
@@ -26,6 +29,7 @@ import jegoPod from "./types/sections/jegoPod";
 import mobileApp from "./types/sections/mobileApp";
 import powerPod from "./types/sections/powerPod";
 import social from "./types/social";
+import specs from "./types/specs";
 import video from "./types/video";
 
 const schemas: SchemaTypeDefinition[] = [
@@ -47,6 +51,7 @@ const schemas: SchemaTypeDefinition[] = [
   overview,
   pageFeatures,
   partners,
+  productObject,
   product,
   social,
   video,
@@ -59,6 +64,9 @@ const schemas: SchemaTypeDefinition[] = [
   blockContent,
   author,
   reports,
+  pricing,
+  specs,
+  customization,
 
   footer,
 ];
