@@ -25,7 +25,7 @@ function ElectricVehiclesSection({
           text={overview.ctaText || ""}
         />
         {!products.length ? null : (
-          <ElectricProductItem product={products[0]} />
+          <ElectricProductItem productsRef={products} />
         )}
       </div>
     </div>

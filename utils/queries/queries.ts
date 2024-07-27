@@ -19,3 +19,5 @@ export const GetReports = groq`*[_type == "reports"][0...6]`;
 export const GetReportBySlug = groq`*[_type == "reports" && slug.current == $ref][0]`;
 
 export const GetReportsCategories = groq`*[_type == "reportsCategory"]`;
+
+export const GetProductFromRef = groq`*[_type == "products" && _id==$ref][0]`;

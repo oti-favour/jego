@@ -1,39 +1,40 @@
+import { ESimplerColor } from "@/simpleColor";
 import type {
-  SanityReference,
-  SanityKeyedReference,
   SanityAsset,
-  SanityImage,
-  SanityFile,
-  SanityGeoPoint,
   SanityBlock,
   SanityDocument,
-  SanityImageCrop,
-  SanityImageHotspot,
-  SanityKeyed,
+  SanityFile,
+  SanityGeoPoint,
+  SanityImage,
   SanityImageAsset,
-  SanityImageMetadata,
+  SanityImageCrop,
   SanityImageDimensions,
+  SanityImageHotspot,
+  SanityImageMetadata,
   SanityImagePalette,
   SanityImagePaletteSwatch,
+  SanityKeyed,
+  SanityKeyedReference,
+  SanityReference,
 } from "sanity-codegen";
 
 export type {
-  SanityReference,
-  SanityKeyedReference,
   SanityAsset,
-  SanityImage,
-  SanityFile,
-  SanityGeoPoint,
   SanityBlock,
   SanityDocument,
-  SanityImageCrop,
-  SanityImageHotspot,
-  SanityKeyed,
+  SanityFile,
+  SanityGeoPoint,
+  SanityImage,
   SanityImageAsset,
-  SanityImageMetadata,
+  SanityImageCrop,
   SanityImageDimensions,
+  SanityImageHotspot,
+  SanityImageMetadata,
   SanityImagePalette,
   SanityImagePaletteSwatch,
+  SanityKeyed,
+  SanityKeyedReference,
+  SanityReference,
 };
 
 /**
@@ -129,6 +130,29 @@ export interface Booking extends SanityDocument {
    *
    */
   title?: string;
+}
+
+/**
+ * products
+ *
+ *
+ */
+export interface Products extends SanityDocument {
+  _type: "products";
+
+  /**
+   * slug — `slug`
+   *
+   *
+   */
+  slug: { _type: "slug"; current: string };
+
+  /**
+   * product — `product`
+   *
+   *
+   */
+  product: Product;
 }
 
 /**
@@ -531,7 +555,7 @@ export type ElectricVehicle = {
    *
    *
    */
-  products: Array<SanityKeyed<Product>>;
+  products: Array<SanityKeyedReference<Products>>;
 };
 
 export type MobileApp = {
@@ -872,6 +896,18 @@ export type Product = {
   description: string;
 
   /**
+   * heroImage — `image`
+   *
+   *
+   */
+  heroImage: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
    * price — `number`
    *
    *
@@ -905,6 +941,27 @@ export type Product = {
    *
    */
   ctaText?: string;
+
+  /**
+   * pricing — `array`
+   *
+   *
+   */
+  pricing: Array<SanityKeyed<Pricing>>;
+
+  /**
+   * specs — `array`
+   *
+   *
+   */
+  specs?: Array<SanityKeyed<Specs>>;
+
+  /**
+   * customization — `customization`
+   *
+   *
+   */
+  customization: Customization;
 };
 
 export type Social = {
@@ -1064,7 +1121,116 @@ export type Author = {
   bio?: string;
 };
 
-export type Documents = Home | Booking | Investors | News | Reports | Footer;
+export type Pricing = {
+  _type: "pricing";
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * price — `number`
+   *
+   *
+   */
+  price: number;
+
+  /**
+   * description — `text`
+   *
+   *
+   */
+  description?: string;
+};
+
+export type Specs = {
+  _type: "specs";
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * description — `text`
+   *
+   *
+   */
+  description: string;
+};
+
+export type Customization = {
+  _type: "customization";
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * description — `text`
+   *
+   *
+   */
+  description: string;
+
+  /**
+   * colors — `array`
+   *
+   *
+   */
+  colors?: Array<
+    SanityKeyed<{
+      /**
+       * Color Name — `simplerColor`
+       *
+       *
+       */
+      name?: SimplerColor;
+
+      /**
+       * title — `text`
+       *
+       *
+       */
+      title?: string;
+
+      /**
+       * description — `text`
+       *
+       *
+       */
+      description?: string;
+
+      /**
+       * images — `array`
+       *
+       *
+       */
+      images?: Array<
+        SanityKeyed<{
+          _type: "image";
+          asset: SanityReference<SanityImageAsset>;
+          crop?: SanityImageCrop;
+          hotspot?: SanityImageHotspot;
+        }>
+      >;
+    }>
+  >;
+};
+
+export type Documents =
+  | Home
+  | Booking
+  | Products
+  | Investors
+  | News
+  | Reports
+  | Footer;
 
 /**
  * This interface is a stub. It was referenced in your sanity schema but
@@ -1079,3 +1245,10 @@ type Email = any;
  * sanity-codegen will let you type this explicity.
  */
 type IconPicker = any;
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+interface SimplerColor extends ESimplerColor {}

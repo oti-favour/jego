@@ -3,6 +3,7 @@ import {
   Home,
   Investors,
   News,
+  Products,
   Reports,
 } from "@/types/generated-types";
 import { fetchDocument, fetchDocumentByRef } from "@/utils/actions/actions";
@@ -12,12 +13,13 @@ import {
   GetInvestorsPage,
   GetNewsFromRef,
   GetNewsFromSlug,
+  GetProductFromRef,
   GetReportBySlug,
   GetReports,
 } from "@/utils/queries/queries";
 import { cache } from "react";
 
-export const getHomeData = cache(async () => {
+export const getHomeData = async () => {
   "use server";
   const data = await fetchDocument<Home>({
     query: GetHomePage,
@@ -28,7 +30,7 @@ export const getHomeData = cache(async () => {
   });
 
   return { data, footer };
-});
+};
 
 export default getHomeData;
 
@@ -88,4 +90,15 @@ export const getReportFromSlug = cache(async (slug: string) => {
   });
 
   return report;
+});
+
+export const getProductFromRef = cache(async (ref: string) => {
+  "use server";
+  const product = await fetchDocumentByRef<Products>({
+    query: GetProductFromRef,
+    ref,
+  });
+  console.log(ref);
+
+  return product;
 });
