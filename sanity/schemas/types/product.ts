@@ -1,13 +1,30 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "product",
-  type: "object",
+  name: "products",
+  type: "document",
+  preview: {
+    select: {
+      title: "product.title",
+      media: "product.heroImage",
+    },
+
+    prepare(selection) {
+      return {
+        title: selection.title,
+        media: selection.media,
+      };
+    },
+  },
   fields: [
     defineField(
       {
-        name: "title",
-        type: "string",
+        name: "slug",
+        type: "slug",
+        options: {
+          source: "product.title",
+          maxLength: 96,
+        },
         validation: (Rule) => Rule.required(),
         codegen: { required: true },
       },
@@ -17,8 +34,8 @@ export default defineType({
     ),
     defineField(
       {
-        name: "description",
-        type: "text",
+        name: "product",
+        type: "product",
         validation: (Rule) => Rule.required(),
         codegen: { required: true },
       },
@@ -26,30 +43,5 @@ export default defineType({
         strict: false,
       },
     ),
-    defineField({
-      name: "price",
-      type: "number",
-    }),
-    defineField(
-      {
-        name: "images",
-        type: "array",
-        of: [{ type: "image" }],
-        validation: (Rule) => Rule.required().min(2),
-        codegen: { required: true },
-      },
-      {
-        strict: false,
-      },
-    ),
-    defineField({
-      name: "cta",
-      type: "url",
-    }),
-    defineField({
-      name: "ctaText",
-      type: "string",
-      validation: (Rule) => Rule.max(50),
-    }),
   ],
 });
