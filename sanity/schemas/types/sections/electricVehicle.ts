@@ -19,8 +19,8 @@ export default defineType({
       {
         name: "products",
         type: "array",
-        of: [{ type: "product" }],
-        validation: (Rule) => Rule.required().min(1),
+        of: [{ type: "reference", to: [{ type: "products" }] }],
+        validation: (Rule) => Rule.required().min(2),
         codegen: { required: true },
       },
       {
