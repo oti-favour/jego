@@ -97,6 +97,13 @@
 }
 
 @font-face {
+  font-family: "Product Sans Bold";
+  src: url("/fonts/ProductSans-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Dela Gothic One";
   src: url("/fonts/DelaGothicOne-Regular.ttf");
   font-weight: bold;

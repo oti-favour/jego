@@ -14,6 +14,7 @@ import {
   GetNewsFromRef,
   GetNewsFromSlug,
   GetProductFromRef,
+  GetProductFromSlug,
   GetReportBySlug,
   GetReports,
 } from "@/utils/queries/queries";
@@ -97,6 +98,16 @@ export const getProductFromRef = cache(async (ref: string) => {
   const product = await fetchDocumentByRef<Products>({
     query: GetProductFromRef,
     ref,
+  });
+
+  return product;
+});
+
+export const getProductsFromSlug = cache(async (slug: string) => {
+  "use server";
+  const product = await fetchDocumentByRef<Products>({
+    query: GetProductFromSlug,
+    ref: slug,
   });
 
   return product;
