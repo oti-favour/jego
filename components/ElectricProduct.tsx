@@ -2,6 +2,7 @@ import { getProductFromRef } from "@/hooks/getData";
 import { sanityImageUrl } from "@/lib/utils";
 import { Product, Products, SanityReference } from "@/types/generated-types";
 import Image from "next/image";
+import Link from "next/link";
 import { CTAPlain } from "./CTA";
 import { Caption, Paragraph } from "./Typography";
 
@@ -37,7 +38,7 @@ async function ElectricProductItem({
           )}
           <div className="absolute left-0 top-0 h-full w-full bg-black/50 text-white opacity-0 transition-all group-hover:opacity-100">
             <div className="flex h-full items-end px-6 pb-6">
-              <ProductInfo product={first.product} />
+              <ProductInfo product={first.product} slug={first.slug.current} />
             </div>
           </div>
         </div>
@@ -54,7 +55,10 @@ async function ElectricProductItem({
           )}
           <div className="absolute left-0 top-0 h-full w-full bg-black/50 text-white opacity-0 transition-all group-hover:opacity-100">
             <div className="flex h-full items-end px-6 pb-6">
-              <ProductInfo product={second.product} />
+              <ProductInfo
+                product={second.product}
+                slug={second.slug.current}
+              />
             </div>
           </div>
         </div>
@@ -63,18 +67,28 @@ async function ElectricProductItem({
   );
 }
 
-function ProductInfo({ product }: { product: Partial<Product> }) {
+function ProductInfo({
+  product,
+  slug,
+}: {
+  product: Partial<Product>;
+  slug: string;
+}) {
   const { title, description, cta, ctaText } = product;
   return (
-    <div className="space-y-4">
+    <div className="isolate space-y-4">
       <Caption className="font-gustavo text-3xl font-bold normal-case lg:text-4xl">
         {title}
       </Caption>
       <Paragraph className="truncate3">{description}</Paragraph>
       <CTAPlain
-        className="bg-brightTurquoise px-5 py-3 font-product text-sm lg:text-lg"
+        className="z-[50] bg-brightTurquoise px-5 py-3 font-product text-sm lg:text-lg"
         href={cta || ""}
         text={ctaText || ""}
+      />
+      <Link
+        href={`/products/${slug}`}
+        className="absolute top-0 -z-50 h-full w-full"
       />
     </div>
   );
