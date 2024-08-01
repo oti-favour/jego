@@ -2,7 +2,6 @@ import { getProductFromRef } from "@/hooks/getData";
 import { sanityImageUrl } from "@/lib/utils";
 import { Product, Products, SanityReference } from "@/types/generated-types";
 import Image from "next/image";
-import Link from "next/link";
 import { CTAPlain } from "./CTA";
 import { Caption, Paragraph } from "./Typography";
 
@@ -83,12 +82,8 @@ function ProductInfo({
       <Paragraph className="truncate3">{description}</Paragraph>
       <CTAPlain
         className="z-[50] bg-brightTurquoise px-5 py-3 font-product text-sm lg:text-lg"
-        href={cta || ""}
+        href={cta || `/products/${slug}`}
         text={ctaText || ""}
-      />
-      <Link
-        href={`/products/${slug}`}
-        className="absolute top-0 -z-50 h-full w-full"
       />
     </div>
   );
