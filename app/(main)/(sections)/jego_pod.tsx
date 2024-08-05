@@ -42,7 +42,7 @@ function JegoPodSection({ jegoPod }: { jegoPod: JegoPod }) {
               </div>
 
               <div className="flex flex-col gap-4 md:flex-row md:gap-6">
-                <CTA href={overview.cta || ""} text={overview.ctaText || ""} />
+                <CTA href={"/jegopod"} text={overview.ctaText || ""} />
                 <CTAPlain
                   text={overview.secondaryCtaText || ""}
                   href={overview.secondaryCta || ""}
