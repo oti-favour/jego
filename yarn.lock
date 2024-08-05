@@ -2287,7 +2287,7 @@
   resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-1.3.10.tgz#df934a94ae6669fe6b15515d800afb221cba0498"
   integrity sha512-5wVG/vIiGuGrSmq+Bl3PY7XDgQrGv0fyHdJI64FSulnr2wH3NMqZ6C59UFxnrZ93sr7kOt0zQFoNv2lkPBi0Cg==
 
-"@sanity/icons@^2.3.1", "@sanity/icons@^2.4.1":
+"@sanity/icons@^2.0.0", "@sanity/icons@^2.11.8", "@sanity/icons@^2.3.1", "@sanity/icons@^2.4.1":
   version "2.11.8"
   resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-2.11.8.tgz#90a38b7d23b5c9f728a6e7ebdac80c3f76c64c35"
   integrity sha512-C4ViXtk6eyiNTQ5OmxpfmcK6Jw+LLTi9zg9XBUD15DzC4xTHaGW9SVfUa43YtPGs3WC3M0t0K59r0GDjh52HIg==
@@ -2465,19 +2465,15 @@
     "@sanity/client" "^6.21.1"
     "@types/react" "^18.0.25"
 
-"@sanity/ui@^1.3.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-1.9.3.tgz#4af45902ac95801aa5ea57f377beaf3e3cb36339"
-  integrity sha512-AdWEVFaK0Snk6xxP0lGPVP3QQYKwzkfGFpFZnL9d6UtWt8yeuS8BMLVAzmXzg14hrqH50ex9nvNl3eq6a0MWiw==
+"@sanity/types@3.52.4":
+  version "3.52.4"
+  resolved "https://registry.yarnpkg.com/@sanity/types/-/types-3.52.4.tgz#43e58cfe54d9556a92b4522bf7167fea2bf4f6aa"
+  integrity sha512-OUC+OuJo3G2zAIIf8znLoGMSe0U0cX/KeSBA+yNVkutBxOaRpaJbhFhiX+4zWfGUOMPwaMd8+4pATgRd2kD8jQ==
   dependencies:
-    "@floating-ui/react-dom" "2.0.0"
-    "@sanity/color" "^2.2.5"
-    "@sanity/icons" "^2.4.1"
-    csstype "^3.1.2"
-    framer-motion "^10.16.2"
-    react-refractor "^2.1.7"
+    "@sanity/client" "^6.21.1"
+    "@types/react" "^18.3.3"
 
-"@sanity/ui@^2.3.3", "@sanity/ui@^2.6.1", "@sanity/ui@^2.8.8":
+"@sanity/ui@^1.0 || ^2.0", "@sanity/ui@^2.3.3", "@sanity/ui@^2.6.1", "@sanity/ui@^2.8.8":
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-2.8.8.tgz#e0e1390091ecfa23fa8f02a398b80386cc4a8d7a"
   integrity sha512-LeYpcng9fakvwgCtAV4b/2koCsm7TTDQNwK+r2MnVghH23ln0iblvBdO4+T1Q10E+m2Vr2dcy3+HErdTu8f8Ag==
@@ -2489,6 +2485,18 @@
     framer-motion "11.0.8"
     react-refractor "^2.2.0"
     use-effect-event "^1.0.2"
+
+"@sanity/ui@^1.3.3":
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-1.9.3.tgz#4af45902ac95801aa5ea57f377beaf3e3cb36339"
+  integrity sha512-AdWEVFaK0Snk6xxP0lGPVP3QQYKwzkfGFpFZnL9d6UtWt8yeuS8BMLVAzmXzg14hrqH50ex9nvNl3eq6a0MWiw==
+  dependencies:
+    "@floating-ui/react-dom" "2.0.0"
+    "@sanity/color" "^2.2.5"
+    "@sanity/icons" "^2.4.1"
+    csstype "^3.1.2"
+    framer-motion "^10.16.2"
+    react-refractor "^2.1.7"
 
 "@sanity/util@3.37.2":
   version "3.37.2"
@@ -2508,6 +2516,17 @@
   dependencies:
     "@sanity/client" "^6.21.1"
     "@sanity/types" "3.52.2"
+    get-random-values-esm "1.0.2"
+    moment "^2.29.4"
+    rxjs "^7.8.1"
+
+"@sanity/util@^3.0.0":
+  version "3.52.4"
+  resolved "https://registry.yarnpkg.com/@sanity/util/-/util-3.52.4.tgz#0cc728cc42f14de7ab8af81fc332eaa6ae3c0ebb"
+  integrity sha512-QdKok77e4ipizidBgRGqWWE7cK4CL3FrrVc+HPaN03R40xoPRej/ag6KprJ/7DAhLLzw7PdbG7yFsuMzlFrsfQ==
+  dependencies:
+    "@sanity/client" "^6.21.1"
+    "@sanity/types" "3.52.4"
     get-random-values-esm "1.0.2"
     moment "^2.29.4"
     rxjs "^7.8.1"
@@ -2924,7 +2943,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18", "@types/react@^18.0.25":
+"@types/react@*", "@types/react@^18", "@types/react@^18.0.25", "@types/react@^18.3.3":
   version "18.3.3"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.3.tgz#9679020895318b0915d7a3ab004d92d33375c45f"
   integrity sha512-hti/R0pS0q1/xx+TsI73XIqk26eBsISZ2R0wUijXIngRK9R/e7Xw/cXVxQK7R5JjW+SV4zGcn5hXjudkN/pLIw==
@@ -7345,6 +7364,11 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
+pigeon-maps@^0.21.6:
+  version "0.21.6"
+  resolved "https://registry.yarnpkg.com/pigeon-maps/-/pigeon-maps-0.21.6.tgz#e9b89e614fa46a94c7e86984cf8e6794a1eccc0e"
+  integrity sha512-6io58lhpbtVT/DUKDoOqsjeAFW46Nfe+gr4PX/kmD1dyJxfb8WaT4hcgwcmM8dJdkyfibgLHo59Uo2o2/xscaQ==
+
 pinkie-promise@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
@@ -8198,6 +8222,21 @@ sanity-diff-patch@^3.0.2:
   dependencies:
     "@sanity/diff-match-patch" "^3.0.0"
 
+sanity-plugin-documents-pane@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-documents-pane/-/sanity-plugin-documents-pane-2.3.0.tgz#7669a0c0f27b8f4b595fbe8a587b5fc6bd6b776a"
+  integrity sha512-2gDYMW9UonENGcSAsAVlnGo6GKBDIAsZY7fpMDZ3/1le0qKAKFnXTbmov7fCCW6uNI+3VNQ2xhhicscr8iEgTQ==
+  dependencies:
+    "@sanity/icons" "^2.0.0"
+    "@sanity/incompatible-plugin" "^1.0.4"
+    "@sanity/ui" "^1.0 || ^2.0"
+    "@sanity/util" "^3.0.0"
+    "@sanity/uuid" "^3.0.1"
+    dlv "^1.1.3"
+    react-fast-compare "^3.2.0"
+    rxjs "^7.0.0"
+    sanity-plugin-utils "^1.6.3"
+
 sanity-plugin-icon-picker@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/sanity-plugin-icon-picker/-/sanity-plugin-icon-picker-3.3.0.tgz#f58d9987ac6c94737ed8484529848115b901ff12"
@@ -8221,6 +8260,15 @@ sanity-plugin-simpler-color-input@^2.2.2:
     "@sanity/ui" "^1.3.3"
     "@uiw/react-color" "^2.3.0"
     react-icons "^4.11.0"
+
+sanity-plugin-utils@^1.6.3:
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-utils/-/sanity-plugin-utils-1.6.5.tgz#f32e6ef91585cc3d60ff9964690f8b21d213fed8"
+  integrity sha512-QJOBaNSIR7nG8xaSRD/CsqPMz8ZMZIkJ2pCIzB14uD9J4iiCaRh6V4R6We6L4gNJ/Pr57AuzQS/SGqlyTue5Qw==
+  dependencies:
+    "@sanity/icons" "^2.11.8"
+    "@sanity/incompatible-plugin" "^1.0.4"
+    styled-components "^6.1.6"
 
 sanity@3, sanity@^3:
   version "3.52.2"
@@ -8772,7 +8820,7 @@ style-mod@^4.0.0, style-mod@^4.1.0:
   resolved "https://registry.yarnpkg.com/style-mod/-/style-mod-4.1.2.tgz#ca238a1ad4786520f7515a8539d5a63691d7bf67"
   integrity sha512-wnD1HyVqpJUI2+eKZ+eo1UwghftP6yuFheBqqe+bWCotBjC2K1YnteJILRMs3SM4V/0dLEW1SC27MWP5y+mwmw==
 
-styled-components@6:
+styled-components@6, styled-components@^6.1.6:
   version "6.1.12"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.12.tgz#0d9d511aacfb9052936146dcc2856559e6fae4df"
   integrity sha512-n/O4PzRPhbYI0k1vKKayfti3C/IGcPf+DqcrOB7O/ab9x4u/zjqraneT5N45+sIe87cxrCApXM8Bna7NYxwoTA==
