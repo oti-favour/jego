@@ -23,3 +23,15 @@ export const GetReportsCategories = groq`*[_type == "reportsCategory"]`;
 export const GetProductFromRef = groq`*[_type == "products" && _id==$ref][0]`;
 
 export const GetProductFromSlug = groq`*[_type == "products" && slug.current == $ref][0]`;
+
+// fetch locations and reference to products
+export const GetLocationsWithProducts = groq`*[_type == "locations"]{
+    ...,
+    "products": products[]{
+    product -> {
+        ...,
+        product 
+    },
+    comingSoon
+  }
+    }`;
