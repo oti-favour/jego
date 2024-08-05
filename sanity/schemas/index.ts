@@ -26,8 +26,10 @@ import hero from "./types/sections/hero";
 import intro from "./types/sections/intro";
 import investorsHome from "./types/sections/investorsHome";
 import jegoPod from "./types/sections/jegoPod";
+import location from "./types/sections/location";
 import mobileApp from "./types/sections/mobileApp";
 import powerPod from "./types/sections/powerPod";
+import waitlist from "./types/sections/waitlist";
 import social from "./types/social";
 import specs from "./types/specs";
 import video from "./types/video";
@@ -67,6 +69,8 @@ const schemas: SchemaTypeDefinition[] = [
   pricing,
   specs,
   customization,
+  location,
+  waitlist,
 
   footer,
 ];
