@@ -167,17 +167,20 @@ const DesktopNav: React.FC<{
   return (
     <NavigationMenu
       className={cn(
-        "hidden w-full items-center justify-between lg:container lg:flex",
+        "hidden w-full items-center justify-between lg:flex",
         scrollClassName,
       )}
     >
       {!hideLogo && (
-        <NavigationMenuList>
+        <NavigationMenuList className="lg:container">
           <NavItem href="/" icon={<Logo />} />
         </NavigationMenuList>
       )}
       <NavigationMenuList
-        className={cn("flex items-center gap-8 text-white", className)}
+        className={cn(
+          "flex items-center gap-8 text-white lg:container",
+          className,
+        )}
       >
         {components.map((component, index) => (
           <NavItem key={index} {...component} />
