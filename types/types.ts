@@ -24,3 +24,10 @@ export interface AnimationProps {
   children: React.ReactNode;
   className?: string;
 }
+
+export interface MapProviderProps {
+  x: number;
+  y: number;
+  z: number;
+  dpr: number;
+}

@@ -1,40 +1,39 @@
-import { ESimplerColor } from "@/simpleColor";
 import type {
+  SanityReference,
+  SanityKeyedReference,
   SanityAsset,
-  SanityBlock,
-  SanityDocument,
+  SanityImage,
   SanityFile,
   SanityGeoPoint,
-  SanityImage,
-  SanityImageAsset,
+  SanityBlock,
+  SanityDocument,
   SanityImageCrop,
-  SanityImageDimensions,
   SanityImageHotspot,
+  SanityKeyed,
+  SanityImageAsset,
   SanityImageMetadata,
+  SanityImageDimensions,
   SanityImagePalette,
   SanityImagePaletteSwatch,
-  SanityKeyed,
-  SanityKeyedReference,
-  SanityReference,
 } from "sanity-codegen";
 
 export type {
+  SanityReference,
+  SanityKeyedReference,
   SanityAsset,
-  SanityBlock,
-  SanityDocument,
+  SanityImage,
   SanityFile,
   SanityGeoPoint,
-  SanityImage,
-  SanityImageAsset,
+  SanityBlock,
+  SanityDocument,
   SanityImageCrop,
-  SanityImageDimensions,
   SanityImageHotspot,
+  SanityKeyed,
+  SanityImageAsset,
   SanityImageMetadata,
+  SanityImageDimensions,
   SanityImagePalette,
   SanityImagePaletteSwatch,
-  SanityKeyed,
-  SanityKeyedReference,
-  SanityReference,
 };
 
 /**
@@ -380,6 +379,101 @@ export interface Reports extends SanityDocument {
    *
    */
   readCount: number;
+}
+
+/**
+ * locations
+ *
+ *
+ */
+export interface Locations extends SanityDocument {
+  _type: "locations";
+
+  /**
+   * name — `string`
+   *
+   *
+   */
+  name: string;
+
+  /**
+   * address — `string`
+   *
+   *
+   */
+  address: string;
+
+  /**
+   * latitude — `number`
+   *
+   *
+   */
+  latitude: number;
+
+  /**
+   * longitude — `number`
+   *
+   *
+   */
+  longitude: number;
+
+  /**
+   * image — `image`
+   *
+   * Image of the location, this will be used as a thumbnail
+   */
+  image: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * products — `array`
+   *
+   * Vehicle models available at this location
+   */
+  products: Array<
+    SanityKeyed<{
+      /**
+       * product — `reference`
+       *
+       *
+       */
+      product: SanityReference<Products>;
+
+      /**
+       * comingSoon — `boolean`
+       *
+       *
+       */
+      comingSoon: boolean;
+    }>
+  >;
+}
+
+/**
+ * waitlist
+ *
+ *
+ */
+export interface Waitlist extends SanityDocument {
+  _type: "waitlist";
+
+  /**
+   * email — `email`
+   *
+   *
+   */
+  email: Email;
 }
 
 /**
@@ -1230,6 +1324,8 @@ export type Documents =
   | Investors
   | News
   | Reports
+  | Locations
+  | Waitlist
   | Footer;
 
 /**
@@ -1251,4 +1347,4 @@ type IconPicker = any;
  * the definition was not actually found. Future versions of
  * sanity-codegen will let you type this explicity.
  */
-interface SimplerColor extends ESimplerColor {}
+type SimplerColor = any;
