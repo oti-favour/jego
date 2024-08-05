@@ -2,15 +2,21 @@ import {
   Footer,
   Home,
   Investors,
+  Locations,
   News,
   Products,
   Reports,
 } from "@/types/generated-types";
-import { fetchDocument, fetchDocumentByRef } from "@/utils/actions/actions";
+import {
+  fetchDocument,
+  fetchDocumentByRef,
+  fetchDocuments,
+} from "@/utils/actions/actions";
 import {
   GetFooter,
   GetHomePage,
   GetInvestorsPage,
+  GetLocationsWithProducts,
   GetNewsFromRef,
   GetNewsFromSlug,
   GetProductFromRef,
@@ -111,4 +117,11 @@ export const getProductsFromSlug = cache(async (slug: string) => {
   });
 
   return product;
+});
+
+export const getLocations = cache(async () => {
+  "use server";
+  const locations = await fetchDocuments<Locations>(GetLocationsWithProducts);
+
+  return locations;
 });
