@@ -1,7 +1,7 @@
-import { CTAPlain } from "@/components/CTA";
 import GoBack from "@/components/GoBack";
 import ReactGallery from "@/components/ReactGallery";
 import { Caption, DynamicHeading, Paragraph } from "@/components/Typography";
+import WaitlistDialog from "@/components/WaitlistForm";
 import { getProductsFromSlug } from "@/hooks/getData";
 import { cn, sanityImageUrl } from "@/lib/utils";
 import { Check } from "lucide-react";
@@ -40,14 +40,10 @@ async function page({ params: { slug } }: { params: { slug: string } }) {
             >
               {product.title}
             </DynamicHeading>
-            <CTAPlain
-              href={product.cta ?? ""}
-              className="h-fit bg-brightTurquoise px-6 text-[#1D1D1D]"
-              text={product.ctaText ?? "Join waitlist"}
-            />
+            <WaitlistDialog product={product} />
           </div>
 
-          <div className="shadow-productDetail min-w-full rounded-3xl bg-white p-4 lg:p-12">
+          <div className="min-w-full rounded-3xl bg-white p-4 shadow-productDetail lg:p-12">
             <div className="grid space-y-6 divide-y">
               <Section title="description">
                 <Paragraph className="mt-2 w-full min-w-full whitespace-pre-line font-product text-[#475569] md:min-w-full">
@@ -61,7 +57,7 @@ async function page({ params: { slug } }: { params: { slug: string } }) {
                       <Paragraph className="whitespace-nowrap">
                         {price.title}
                       </Paragraph>
-                      <Paragraph className="font-productBold w-full min-w-full whitespace-pre-line text-black md:min-w-full">
+                      <Paragraph className="w-full min-w-full whitespace-pre-line font-productBold text-black md:min-w-full">
                         <span>$</span>
                         <span>{price.price}</span>
                       </Paragraph>
@@ -78,7 +74,7 @@ async function page({ params: { slug } }: { params: { slug: string } }) {
                     >
                       <div className="flex items-center gap-2">
                         <Check className="h-6 w-6 text-[#15803D]" />
-                        <Paragraph className="font-productBold whitespace-nowrap text-black">
+                        <Paragraph className="whitespace-nowrap font-productBold text-black">
                           {spec.title}
                         </Paragraph>
                       </div>
