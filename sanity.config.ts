@@ -52,5 +52,6 @@ export default defineConfig({
 
       return prev;
     },
+    actions: (prev) => prev.filter((action) => action.name !== "duplicate"),
   },
 });
