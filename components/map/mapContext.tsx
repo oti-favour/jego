@@ -11,6 +11,7 @@ interface MapContextValue {
   zoom: number;
   increaseZoom: () => void;
   decreaseZoom: () => void;
+  allLocations?: Locations[];
 }
 
 const initialMapContextValue: MapContextValue = {
@@ -72,6 +73,7 @@ const MapProvider = ({
     zoom: zoom,
     increaseZoom,
     decreaseZoom,
+    allLocations: locations,
   };
 
   return (

@@ -7,12 +7,14 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { sanityImageUrl } from "@/lib/utils";
+import { cn, sanityImageUrl } from "@/lib/utils";
+import LocationSVG from "@/public/assets/location.svg";
+import MapSVG from "@/public/assets/map.svg";
 import { Locations, Product, Products } from "@/types/generated-types";
 import Image from "next/image";
 import { Map, Marker } from "pigeon-maps";
 import { maptiler } from "pigeon-maps/providers";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Chip from "../Chip";
 import {
   Accordion,
@@ -20,45 +22,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { Button } from "../ui/button";
 import { MapContext, MapProvider } from "./mapContext";
 
 function JegoMap({ locations }: { locations: Locations[] }) {
+  const [showMap, setShowMap] = useState(false);
+
   return (
     <div className="flex h-svh max-h-screen w-full flex-col items-center">
       <div className="relative h-full w-full">
         <MapProvider locations={locations}>
-          <MapItem />
-          <div className="absolute right-24 top-1/2 -translate-y-1/2">
-            <Card className="space-y-4 bg-[#F7F6F5] p-4 shadow-xl">
-              <CardHeader className="rounded-xl bg-white">
-                <Caption className="font-gustavoBold text-sm text-[#64748B] md:text-sm lg:text-sm">
-                  book a free test ride
-                </Caption>
-                <DynamicHeading
-                  className="font-productBold text-base normal-case md:text-2xl"
-                  level="h1"
-                >
-                  Where are you located?
-                </DynamicHeading>
-                <Input
-                  type="search"
-                  className="rounded-full"
-                  placeholder="Search location"
-                ></Input>
-              </CardHeader>
-              <CardContent className="space-y-2 px-0">
-                <Caption className="font-productBold text-base normal-case md:text-base">
-                  Locations available
-                </Caption>
-                <LocationItem locations={locations} />
-              </CardContent>
-              <CardFooter className="w-full justify-center py-0 text-center">
-                <span className="font-product text-sm font-light text-[#64748B]">
-                  More locations coming soon
-                </span>
-              </CardFooter>
-            </Card>
+          <MapItem onMarkerClick={() => setShowMap(true)} />
+          <div className={cn(showMap ? "hidden lg:block" : "block")}>
+            <LocationsCard locations={locations} />
           </div>
+          <ButtonSwitcher
+            showMap={showMap}
+            onClick={() => setShowMap((prev) => !prev)}
+          />
         </MapProvider>
       </div>
     </div>
@@ -67,9 +48,75 @@ function JegoMap({ locations }: { locations: Locations[] }) {
 
 export default JegoMap;
 
-function MapItem() {
+function LocationsCard({ locations }: { locations: Locations[] }) {
+  return (
+    <div className="absolute left-1/2 top-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 md:left-auto md:right-24 md:w-max md:-translate-x-0">
+      <Card className="w-full space-y-4 bg-[#F7F6F5] p-4 shadow-xl">
+        <CardHeader className="rounded-xl bg-white">
+          <Caption className="font-gustavoBold text-sm text-[#64748B] md:text-sm lg:text-sm">
+            book a free test ride
+          </Caption>
+          <DynamicHeading
+            className="font-productBold text-base normal-case md:text-2xl"
+            level="h1"
+          >
+            Where are you located?
+          </DynamicHeading>
+          <Input
+            type="search"
+            className="rounded-full"
+            placeholder="Search location"
+          ></Input>
+        </CardHeader>
+        <CardContent className="space-y-2 px-0">
+          <Caption className="font-productBold text-base normal-case md:text-base">
+            Locations available
+          </Caption>
+          <LocationItem locations={locations} />
+        </CardContent>
+        <CardFooter className="w-full justify-center py-0 text-center">
+          <span className="font-product text-sm font-light text-[#64748B]">
+            More locations coming soon
+          </span>
+        </CardFooter>
+      </Card>
+    </div>
+  );
+}
+
+function ButtonSwitcher({
+  showMap,
+  onClick,
+}: {
+  showMap: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 lg:hidden">
+      {showMap ? (
+        <Button
+          onClick={onClick}
+          className="flex items-center gap-2 rounded-full bg-white text-black hover:bg-white/80"
+        >
+          <LocationSVG />
+          <span>Locations</span>
+        </Button>
+      ) : (
+        <Button
+          className="flex items-center gap-2 rounded-full hover:bg-black/80"
+          onClick={onClick}
+        >
+          <MapSVG />
+          <span>Map</span>
+        </Button>
+      )}
+    </div>
+  );
+}
+
+function MapItem({ onMarkerClick }: { onMarkerClick: () => void }) {
   const maptilerProvider = maptiler("0dJTV3UMaWKre0zz0oao", "streets");
-  const { anchor, setAnchor, isAreaAvailable, location } =
+  const { anchor, setAnchor, isAreaAvailable, allLocations } =
     useContext(MapContext);
 
   return (
@@ -83,7 +130,18 @@ function MapItem() {
         minZoom={5}
         onBoundsChanged={({ center }) => setAnchor(center)}
       >
-        <Marker width={50} anchor={[36.778259, -119.417931]} />
+        {allLocations?.map((location, index) => {
+          const { latitude, longitude } = location;
+
+          return (
+            <Marker
+              key={index}
+              width={50}
+              anchor={[latitude, longitude]}
+              onClick={onMarkerClick}
+            />
+          );
+        })}
       </Map>
     </>
   );
