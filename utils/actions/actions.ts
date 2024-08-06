@@ -1,6 +1,5 @@
-"use server";
-
 import { client } from "@/sanity/lib/client";
+import { Waitlist } from "@/types/generated-types";
 
 export async function fetchDocument<T>({
   query,
@@ -160,5 +159,27 @@ export async function fetchDocumentsBySlug<T>({
     throw new Error("Failed to fetch item");
   } catch {
     return [];
+  }
+}
+
+export async function addToWaitlist(email: string) {
+  try {
+    const waitlist = await client.fetch<Waitlist[]>(
+      `*[_type == "waitlist" && email == $email]`,
+      { email },
+    );
+
+    if (waitlist.length > 0) {
+      return;
+    }
+
+    const res = client.create({
+      _type: "waitlist",
+      email,
+    });
+
+    return res;
+  } catch (error) {
+    return error;
   }
 }
