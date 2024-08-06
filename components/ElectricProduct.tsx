@@ -73,7 +73,7 @@ function ProductInfo({
   product: Partial<Product>;
   slug: string;
 }) {
-  const { title, description, cta, ctaText } = product;
+  const { title, description, cta } = product;
   return (
     <div className="isolate space-y-4">
       <Caption className="font-gustavo text-3xl font-bold normal-case lg:text-4xl">
@@ -83,7 +83,7 @@ function ProductInfo({
       <CTAPlain
         className="z-[50] bg-brightTurquoise px-5 py-3 font-product text-sm lg:text-lg"
         href={cta || `/products/${slug}`}
-        text={ctaText || ""}
+        text={"Product Details"}
       />
     </div>
   );
