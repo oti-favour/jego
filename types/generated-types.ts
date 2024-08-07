@@ -124,11 +124,18 @@ export interface Booking extends SanityDocument {
   _type: "booking";
 
   /**
-   * title — `string`
+   * calendlyURL — `url`
    *
-   *
+   * The URL to the calendly event
    */
-  title?: string;
+  calendlyURL: string;
+
+  /**
+   * maptilerKey — `string`
+   *
+   * The MapTiler API key
+   */
+  maptilerKey: string;
 }
 
 /**
