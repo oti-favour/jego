@@ -1,13 +1,5 @@
 "use client";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
   Form,
   FormControl,
   FormField,
@@ -16,7 +8,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Product } from "@/types/generated-types";
 import { addToWaitlist } from "@/utils/actions/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -25,44 +16,11 @@ import { toast } from "sonner";
 import * as z from "zod";
 import { Button } from "./ui/button";
 
-function WaitlistDialog({ product }: { product: Partial<Product> }) {
-  const [open, setOpen] = useState(false);
-
-  const handleOpenChange = (isOpen: boolean) => {
-    setOpen(isOpen);
-  };
-
-  return (
-    <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogTrigger asChild>
-        <Button
-          className="h-fit rounded-full bg-brightTurquoise px-6 text-[#1D1D1D] hover:bg-brightTurquoise/80"
-          title="Join Waitlist"
-          onClick={() => setOpen(true)}
-        >
-          Join Waitlist
-        </Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Enter your email</DialogTitle>
-          <DialogDescription>
-            <WaitlistForm handleOpenChange={handleOpenChange} />
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
-  );
-}
 const formSchema = z.object({
   email: z.string().email().min(1).max(255),
 });
 
-function WaitlistForm({
-  handleOpenChange,
-}: {
-  handleOpenChange: (isOpen: boolean) => void;
-}) {
+function AboutUsWaitlistForm() {
   const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -79,7 +37,6 @@ function WaitlistForm({
     } catch (error) {
       return null;
     } finally {
-      handleOpenChange(false);
       setLoading(false);
       toast("You have been added to the waitlist!");
     }
@@ -90,16 +47,21 @@ function WaitlistForm({
       <form
         noValidate
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8"
+        className="flex w-full flex-col items-center justify-center gap-4 md:flex-row"
       >
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex flex-col">
               <FormLabel className="sr-only">Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="Email" {...field} />
+                <Input
+                  type="email"
+                  className="md:min-w-sm w-full rounded-full border placeholder:text-[#9DA4AE]"
+                  placeholder="Eg. info@jego.com"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -108,7 +70,7 @@ function WaitlistForm({
         <Button
           variant={"shine"}
           type="submit"
-          className="min-w-36 bg-brightTurquoise hover:bg-brightTurquoise/80"
+          className="w-full rounded-full bg-brightTurquoise text-black hover:bg-brightTurquoise/80 md:w-auto md:px-8"
         >
           {loading ? (
             <svg
@@ -140,4 +102,4 @@ function WaitlistForm({
   );
 }
 
-export default WaitlistDialog;
+export default AboutUsWaitlistForm;

@@ -6,7 +6,13 @@ import Image from "next/image";
 import { HTMLAttributes } from "react";
 import "./member.css";
 import { Caption, Paragraph } from "./Typography";
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
 
 const MembersCarousel: React.FC<MembersProps> = ({
   members,
@@ -17,14 +23,15 @@ const MembersCarousel: React.FC<MembersProps> = ({
     <>
       <>
         <Carousel
-          opts={{ axis: "y", loop: true, inViewThreshold: 0.9 }}
-          orientation="vertical"
+          opts={{ loop: true, inViewThreshold: 0.9 }}
           plugins={[CLassNames()]}
           className="h-full md:hidden"
         >
-          <CarouselContent className="grid h-[50svh] grid-flow-row auto-rows-[80%]">
+          <CarouselContent className="flex max-h-[40svh]">
             <Members members={members} className="overflow-hidden" />
           </CarouselContent>
+          <CarouselNext />
+          <CarouselPrevious />
         </Carousel>
       </>
       <>
