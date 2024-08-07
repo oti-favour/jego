@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={"font-product"}>
+      <body className={"font-product"} id="root">
         <Navbar
           className="bg-[#DEDEDE]/50 text-black"
           desktopClassName="text-black"
