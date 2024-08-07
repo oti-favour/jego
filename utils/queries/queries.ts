@@ -35,3 +35,5 @@ export const GetLocationsWithProducts = groq`*[_type == "locations"]{
     comingSoon
   }
     }`;
+
+export const GetBooking = groq`*[_type == "booking"][0]`;
