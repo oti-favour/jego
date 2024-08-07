@@ -1,8 +1,7 @@
+import AboutUsWaitlistForm from "@/components/AboutUsWaitlistForm";
 import PageName from "@/components/PageName";
 import { DynamicHeading, Paragraph } from "@/components/Typography";
 import MobileAppLayout from "@/components/home/MobileAppLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { sanityImageUrl } from "@/lib/utils";
 import { MobileApp, Overview } from "@/types/generated-types";
 import Image from "next/image";
@@ -66,16 +65,7 @@ function MobileAppOverview({
         text={overview.description}
         className="min-w-full text-balance text-center text-[#475569]"
       />
-      <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row">
-        <Input
-          type="email"
-          className="rounded-full placeholder:text-[#9DA4AE] md:max-w-xs"
-          placeholder="Eg. info@jego.com"
-        />
-        <Button className="w-full rounded-full bg-brightTurquoise text-black md:w-auto md:px-8">
-          {overview.ctaText || "Join waitlist"}
-        </Button>
-      </div>
+      <AboutUsWaitlistForm />
     </div>
   );
 }
