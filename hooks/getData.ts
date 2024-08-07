@@ -1,4 +1,5 @@
 import {
+  Booking,
   Footer,
   Home,
   Investors,
@@ -13,6 +14,7 @@ import {
   fetchDocuments,
 } from "@/utils/actions/actions";
 import {
+  GetBooking,
   GetFooter,
   GetHomePage,
   GetInvestorsPage,
@@ -123,5 +125,7 @@ export const getLocations = cache(async () => {
   "use server";
   const locations = await fetchDocuments<Locations>(GetLocationsWithProducts);
 
-  return locations;
+  const booking = await fetchDocument<Booking>({ query: GetBooking });
+
+  return { locations, booking };
 });
