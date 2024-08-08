@@ -1,0 +1,7 @@
+.is-in-view {
+  @apply grayscale;
+}
+
+.is-snapped {
+  @apply grayscale-0;
+}

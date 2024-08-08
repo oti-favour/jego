@@ -1,0 +1,29 @@
+:root {
+  --orange: #ff8200;
+  --gray: #ededed;
+
+  --background: var(--orange);
+  --accent: var(--gray);
+}
+
+#progress {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transform: rotate(-90deg);
+}
+
+circle {
+  stroke-dashoffset: 0;
+  stroke-width: 15%;
+  fill: none;
+}
+
+.bg {
+  stroke: var(--accent);
+  opacity: 0.3;
+}
+
+#progress .indicator {
+  stroke: var(--background);
+}

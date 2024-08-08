@@ -1,8 +1,6 @@
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Jégo",
@@ -16,7 +14,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={"font-product"}>
+        <Navbar
+          className=""
+          scrollClassName=" bg-black/20 px-4 py-2 backdrop-blur md:py-4"
+        />
+        {children}
+      </body>
     </html>
   );
 }
