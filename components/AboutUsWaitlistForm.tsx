@@ -53,12 +53,12 @@ function AboutUsWaitlistForm() {
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem className="flex flex-col">
+            <FormItem className="flex flex-col md:min-w-64 lg:min-w-96">
               <FormLabel className="sr-only">Email</FormLabel>
               <FormControl>
                 <Input
                   type="email"
-                  className="md:min-w-sm w-full rounded-full border placeholder:text-[#9DA4AE]"
+                  className="w-full rounded-full border placeholder:text-[#9DA4AE]"
                   placeholder="Eg. info@jego.com"
                   {...field}
                 />
@@ -68,7 +68,6 @@ function AboutUsWaitlistForm() {
           )}
         />
         <Button
-          variant={"shine"}
           type="submit"
           className="w-full rounded-full bg-brightTurquoise text-black hover:bg-brightTurquoise/80 md:w-auto md:px-8"
         >
