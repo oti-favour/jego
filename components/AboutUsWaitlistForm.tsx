@@ -38,7 +38,7 @@ function AboutUsWaitlistForm() {
       return null;
     } finally {
       setLoading(false);
-      toast("You have been added to the waitlist!");
+      toast.success("You have been added to the waitlist!");
     }
   }
 
@@ -59,7 +59,7 @@ function AboutUsWaitlistForm() {
                 <Input
                   type="email"
                   className="w-full rounded-full border placeholder:text-[#9DA4AE]"
-                  placeholder="Eg. info@jego.com"
+                  placeholder="Eg. example@gmail.com"
                   {...field}
                 />
               </FormControl>

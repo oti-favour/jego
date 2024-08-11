@@ -22,12 +22,12 @@ function FAQSection({ faqs }: { faqs: Faqs }) {
             text={faqs.title}
           />
           <Accordion type="single" collapsible className="my-8 w-full md:my-14">
-            {faqs.faqs.map((faq, index) => (
+            {faqs?.faqs?.map((faq, index) => (
               <AccordionItem
                 key={faq._key}
                 value={`item-${index}`}
                 title={faq.question}
-                className="[&[data-state=open]]:shadow-accordion px-4 py-4 md:px-8 [&[data-state=open]]:rounded-3xl [&[data-state=open]]:bg-white"
+                className="px-4 py-4 md:px-8 [&[data-state=open]]:rounded-3xl [&[data-state=open]]:bg-white [&[data-state=open]]:shadow-accordion"
               >
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
                 <AccordionContent className="text-[#64748B]">
