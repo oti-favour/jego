@@ -10,6 +10,8 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
+    if (!features || features.length === 0) return;
+
     const interval = setInterval(() => {
       setActiveStep((prev) => {
         const next = prev + 100 / features.length;
@@ -20,7 +22,7 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [activeStep, features.length]);
+  }, [activeStep, features]);
 
   React.useEffect(() => {
     if (scrollContainerRef.current) {
@@ -46,7 +48,7 @@ function FeaturesStepper({ features }: FeaturesStepperProps) {
         ref={scrollContainerRef}
         className="flex max-w-full justify-evenly gap-6 overflow-x-scroll scrollbar-hide"
       >
-        {features.map((feature, index) => (
+        {features?.map((feature, index) => (
           <div
             key={index}
             className={`min-w-56 space-y-4 ${
