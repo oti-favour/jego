@@ -5,7 +5,8 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Jégo",
-  description: "Welcome to Jégo",
+  description:
+    "Welcome to Jégo, experience a cleaner, more sustainable future with JéGO's innovative modular energy systems and electric vehicles, designed to bring eco-friendly living within reach.",
   openGraph: {
     title: "Jégo",
     description:
