@@ -3,7 +3,9 @@ import { sanityImageUrl } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { useNextSanityImage } from "next-sanity-image";
 import Image from "next/image";
+import { useState } from "react";
 import { Gallery } from "react-grid-gallery";
+import Lightbox from "react-image-lightbox";
 import { Image as SanityImage } from "sanity";
 
 function ReactGallery({ images }: { images: SanityImage[] }) {
@@ -17,6 +19,19 @@ function ReactGallery({ images }: { images: SanityImage[] }) {
       height: imageProp.height,
     };
   });
+
+  const [index, setIndex] = useState(-1);
+
+  const currentImage = images[index];
+  const nextIndex = (index + 1) % images.length;
+  const nextImage = images[nextIndex] || currentImage;
+  const prevIndex = (index + images.length - 1) % images.length;
+  const prevImage = images[prevIndex] || currentImage;
+
+  const handleClick = (index: number) => setIndex(index);
+  const handleClose = () => setIndex(-1);
+  const handleMovePrev = () => setIndex(prevIndex);
+  const handleMoveNext = () => setIndex(nextIndex);
 
   return (
     <div>
@@ -38,7 +53,25 @@ function ReactGallery({ images }: { images: SanityImage[] }) {
           images={allImages}
           margin={10}
           rowHeight={300}
+          onClick={handleClick}
         />
+
+        {!!currentImage && (
+          <Lightbox
+            onImageLoad={() => {
+              window.dispatchEvent(new Event("resize"));
+            }}
+            mainSrc={sanityImageUrl(currentImage)}
+            mainSrcThumbnail={sanityImageUrl(currentImage)}
+            nextSrc={sanityImageUrl(nextImage)}
+            nextSrcThumbnail={sanityImageUrl(nextImage)}
+            prevSrc={sanityImageUrl(prevImage)}
+            prevSrcThumbnail={sanityImageUrl(prevImage)}
+            onCloseRequest={handleClose}
+            onMovePrevRequest={handleMovePrev}
+            onMoveNextRequest={handleMoveNext}
+          />
+        )}
       </div>
     </div>
   );
