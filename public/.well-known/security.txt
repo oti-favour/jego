@@ -1,0 +1,2 @@
+Contact: mailto:contact@hustlebean.app
+Encryption: https://jegopods.com/.well-known/public-key.txt
