@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /investors
+Disallow: /auth/signin
+
+# Allow all
+Allow: /
