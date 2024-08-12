@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Jégo",
-  description: "Welcome to Jégo",
+  title: "JéGO",
+  description: "Welcome to JéGO",
   openGraph: {
-    title: "Jégo",
+    title: "JéGO",
     // keep description above 50 characters
     description:
-      "Welcome to Jégo Investment Page, Get the latest financial reports and updates on Jégo's innovative modular energy systems and electric vehicles.",
+      "Welcome to JéGO Investment Page, Get the latest financial reports and updates on JéGO's innovative modular energy systems and electric vehicles.",
     type: "website",
     url: "https://jegopods.com",
     images: [
@@ -16,23 +16,23 @@ export const metadata: Metadata = {
         url: "https://jegopods.com/assets/logo.svg",
         width: 1200,
         height: 630,
-        alt: "Jégo",
+        alt: "JéGO",
       },
     ],
   },
-  applicationName: "Jégo",
+  applicationName: "JéGO",
   twitter: {
     card: "summary_large_image",
     site: "@jegopods",
-    title: "Jégo",
+    title: "JéGO",
     description:
-      "Welcome to Jégo Investment Page, Get the latest financial reports and updates on Jégo's innovative modular energy systems and electric vehicles.",
+      "Welcome to JéGO Investment Page, Get the latest financial reports and updates on JéGO's innovative modular energy systems and electric vehicles.",
     images: [
       {
         url: "https://jegopods.com/assets/logo.svg",
         width: 1200,
         height: 630,
-        alt: "Jégo",
+        alt: "JéGO",
       },
     ],
   },
