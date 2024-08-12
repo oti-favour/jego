@@ -6,6 +6,37 @@ import "../globals.css";
 export const metadata: Metadata = {
   title: "Jégo",
   description: "Welcome to Jégo",
+  openGraph: {
+    title: "Jégo",
+    description:
+      "Welcome to Jégo, experience a cleaner, more sustainable future with JéGO's innovative modular energy systems and electric vehicles, designed to bring eco-friendly living within reach.",
+    type: "website",
+    url: "https://jegopods.com",
+    images: [
+      {
+        url: "https://jegopods.com/assets/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "Jégo",
+      },
+    ],
+  },
+  applicationName: "Jégo",
+  twitter: {
+    card: "summary_large_image",
+    site: "@jegopods",
+    title: "Jégo",
+    description:
+      "Welcome to Jégo, experience a cleaner, more sustainable future with JéGO's innovative modular energy systems and electric vehicles, designed to bring eco-friendly living within reach.",
+    images: [
+      {
+        url: "https://jegopods.com/assets/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "Jégo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
