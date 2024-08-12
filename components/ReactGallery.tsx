@@ -44,6 +44,7 @@ function ReactGallery({ images }: { images: SanityImage[] }) {
             width={image.width}
             height={image.height}
             className="w-full rounded-2xl"
+            onClick={() => handleClick(index)}
           />
         ))}
       </div>
@@ -55,24 +56,23 @@ function ReactGallery({ images }: { images: SanityImage[] }) {
           rowHeight={300}
           onClick={handleClick}
         />
-
-        {!!currentImage && (
-          <Lightbox
-            onImageLoad={() => {
-              window.dispatchEvent(new Event("resize"));
-            }}
-            mainSrc={sanityImageUrl(currentImage)}
-            mainSrcThumbnail={sanityImageUrl(currentImage)}
-            nextSrc={sanityImageUrl(nextImage)}
-            nextSrcThumbnail={sanityImageUrl(nextImage)}
-            prevSrc={sanityImageUrl(prevImage)}
-            prevSrcThumbnail={sanityImageUrl(prevImage)}
-            onCloseRequest={handleClose}
-            onMovePrevRequest={handleMovePrev}
-            onMoveNextRequest={handleMoveNext}
-          />
-        )}
       </div>
+      {!!currentImage && (
+        <Lightbox
+          onImageLoad={() => {
+            window.dispatchEvent(new Event("resize"));
+          }}
+          mainSrc={sanityImageUrl(currentImage)}
+          mainSrcThumbnail={sanityImageUrl(currentImage)}
+          nextSrc={sanityImageUrl(nextImage)}
+          nextSrcThumbnail={sanityImageUrl(nextImage)}
+          prevSrc={sanityImageUrl(prevImage)}
+          prevSrcThumbnail={sanityImageUrl(prevImage)}
+          onCloseRequest={handleClose}
+          onMovePrevRequest={handleMovePrev}
+          onMoveNextRequest={handleMoveNext}
+        />
+      )}
     </div>
   );
 }
