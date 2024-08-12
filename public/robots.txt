@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /investors
 Disallow: /auth/signin
+Disallow: /studio
 
 # Allow all
 Allow: /
