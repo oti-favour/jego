@@ -1,6 +1,6 @@
 "use client";
 import { NavbarConst } from "@/lib/consts";
-import { cn } from "@/lib/utils";
+import { cn, ScrollToElement } from "@/lib/utils";
 import Menu from "@/public/assets/menu.svg";
 import MenuBlack from "@/public/assets/menuBlack.svg";
 import { NavItemProps } from "@/types/types";
@@ -198,19 +198,6 @@ const NavItem: React.FC<NavItemProps & NavigationMenuItemProps> = ({
   roundedClass,
   ...props
 }) => {
-  function ScrollToElement({ hash }: { hash: string }) {
-    try {
-      const element = document.querySelector(hash.replace("/", ""));
-
-      if (element) {
-        window.scrollTo({
-          top: element.getBoundingClientRect().top + window.scrollY,
-          behavior: "smooth",
-        });
-      }
-    } catch (error) {}
-  }
-
   return (
     <NavigationMenuItem className="" {...props}>
       <Link href={href} legacyBehavior passHref>
