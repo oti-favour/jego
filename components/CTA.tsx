@@ -8,7 +8,7 @@ const CTA: React.FC<CTAProps & React.HTMLProps<HTMLAnchorElement>> = (
   props,
 ) => {
   return (
-    <Link href={props.href} className="">
+    <Link {...props} href={props.href} className="">
       {props.children ? (
         props.children
       ) : (
@@ -33,6 +33,7 @@ const CTAPlain: React.FC<CTAProps & React.HTMLProps<HTMLAnchorElement>> = (
 ) => {
   return (
     <Link
+      {...props}
       href={props.href}
       className={cn(
         "flex max-w-fit items-center gap-4 rounded-full bg-white px-2 py-2 text-black",
@@ -54,11 +55,12 @@ interface CTAProps {
 
 const CTASecondary: React.FC<
   CTASecondaryProps & HTMLProps<HTMLButtonElement>
-> = ({ text, onClick }: { text: string; onClick?: () => void }) => {
+> = ({ text, onClick, ...props }: { text: string; onClick?: () => void }) => {
   return (
     <Button
       className="h-full max-w-fit rounded-full bg-white/10 px-12 backdrop-blur-sm"
       onClick={onClick}
+      {...props}
     >
       {text}
     </Button>
