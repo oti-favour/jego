@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "JéGO",
+  title: "JéGO | Electric Vehicle & Clean Energy Solutions",
   description:
     "Welcome to JéGO, experience a cleaner, more sustainable future with JéGO's innovative modular energy systems and electric vehicles, designed to bring eco-friendly living within reach.",
   openGraph: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  applicationName: "JéGO",
+  applicationName: "JéGO | Electric Vehicle & Clean Energy Solutions",
   twitter: {
     card: "summary_large_image",
     site: "@jegopods",
