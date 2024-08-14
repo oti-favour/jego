@@ -12,3 +12,16 @@ export function sanityImageUrl(image: SanityImageSource) {
   const builder = sanityIMageBuilder(client);
   return builder.image(image).url();
 }
+
+export function ScrollToElement({ hash }: { hash: string }) {
+  try {
+    const element = document.querySelector(hash.replace("/", ""));
+
+    if (element) {
+      window.scrollTo({
+        top: element.getBoundingClientRect().top + window.scrollY,
+        behavior: "smooth",
+      });
+    }
+  } catch (error) {}
+}
