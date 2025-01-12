@@ -17,6 +17,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       async authorize(credentials) {
         const pinCode = await client.fetch<string>(GetPassword);
 
+        if (credentials.password !== pinCode) {
+          console.log(pinCode)
+          
+          return;
+        }
         if (credentials.password === pinCode) {
           console.log("correct password", credentials.password, pinCode);
 
@@ -31,4 +36,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/auth/signin",
   },
+  secret: process.env.NEXTAUTH_SECRET, // Add the secret here
 });

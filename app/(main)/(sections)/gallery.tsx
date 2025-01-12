@@ -14,7 +14,7 @@ function GallerySection({ gallery }: { gallery: Gallery }) {
   const restOfImages = images.slice(2);
   return (
     <GalleryLayout>
-      <div className="relative isolate flex min-h-svh flex-col space-y-12 px-0 py-12 lg:container md:px-4 lg:space-y-24 lg:py-24">
+      <div className="relative isolate flex min-h-svh flex-col space-y-12 px-0 py-12 lg:container md:px-4 lg:space-y-24 lg:py-24 overflow-hidden">
         <div className="flex h-full w-full flex-1 grow items-center justify-center">
           <div className="w-full space-y-12">
             <div className="relative my-32 flex items-center justify-center text-center">

@@ -12,9 +12,12 @@ import IntroSection from "./(sections)/intro";
 import JegoPodSection from "./(sections)/jego_pod";
 import MobileAppSection from "./(sections)/mobile_app";
 import PowerPodSection from "./(sections)/power_pod";
+import getInvestorsData from '@/hooks/getData'
 
 async function Main() {
   const { data, footer } = await getData();
+
+  console.log(getInvestorsData)
 
   if (!data || !footer) {
     return notFound();
