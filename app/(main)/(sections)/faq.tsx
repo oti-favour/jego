@@ -44,7 +44,7 @@ function FAQSection({ faqs }: { faqs: Faqs }) {
             <Link
               href={`mailto:${faqs.email}`}
               passHref
-              className="text-[#009992] underline underline-offset-8"
+              className="cursor-pointer z-30 text-[#009992] underline underline-offset-8"
             >
               {faqs.email}
             </Link>

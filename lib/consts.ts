@@ -6,7 +6,7 @@ export const NavbarConst: NavItemProps[] = [
   { href: "/#jego-pods", text: "JéGO Pods" },
   { href: "/#about-us", text: "About Us" },
   { href: "/investors", text: "Investors" },
-  { href: "#", text: "Contact Us", rounded: true },
+  { href: "mailto:hello@jegopods.com", text: "Contact Us", rounded: true },
 ];
 
 export const ReportsCategories = [
