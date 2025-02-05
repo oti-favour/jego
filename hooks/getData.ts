@@ -129,3 +129,8 @@ export const getLocations = cache(async () => {
 
   return { locations, booking };
 });
+export async function getAllReportSlugs(): Promise<{ slug: string }[]> {
+  const response = await fetch("https://your-api.com/reports");
+  const reports: { slug: string }[] = await response.json();
+  return reports.map((report) => ({ slug: report.slug }));
+}

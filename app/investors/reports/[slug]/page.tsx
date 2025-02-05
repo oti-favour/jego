@@ -4,9 +4,19 @@ import GoBack from "@/components/GoBack";
 import Navbar from "@/components/Navbar";
 import { AuthorItem, NewsHeader } from "@/components/NewsItem";
 import { DynamicHeading } from "@/components/Typography";
-import { getInvestorsData, getReportFromSlug } from "@/hooks/getData";
+import {
+  getAllReportSlugs,
+  getInvestorsData,
+  getReportFromSlug,
+} from "@/hooks/getData";
 import { notFound } from "next/navigation";
-
+// 🔹 This function tells Next.js what pages to generate at build time
+export async function generateStaticParams() {
+  const reports = await getAllReportSlugs(); // Fetch all slugs from API
+  return reports.map((report) => ({
+    slug: report.slug, // Ensure slug matches your dynamic route
+  }));
+}
 async function NewsDetails({ params: { slug } }: { params: { slug: string } }) {
   const report = await getReportFromSlug(slug);
   const { footer } = await getInvestorsData();
