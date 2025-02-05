@@ -7,7 +7,7 @@ import { cn, sanityImageUrl } from "@/lib/utils";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import "react-image-lightbox/style.css";
+import "yet-another-react-lightbox/styles.css";
 
 async function page({ params: { slug } }: { params: { slug: string } }) {
   const { product } = (await getProductsFromSlug(slug)) || {};

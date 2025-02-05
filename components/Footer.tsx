@@ -57,13 +57,15 @@ function NavItems({ navItems }: { navItems: Footer["navItems"] }) {
             <li className="space-y-4 md:mt-8 lg:mt-0">
               <span className="font-bold uppercase">{navItem.title}</span>
               <ul className="space-y-4">
-                {navItem.links?.map((link) => {
-                  return (
-                    <li key={link._key}>
-                      <Link href={link.url}>{link.title}</Link>
-                    </li>
-                  );
-                })}
+                {navItem.links?.map(
+                  (link: { _key: string; url: string; title: string }) => {
+                    return (
+                      <li key={link._key}>
+                        <Link href={link.url}>{link.title}</Link>
+                      </li>
+                    );
+                  },
+                )}
               </ul>
             </li>
           </ul>

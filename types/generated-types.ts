@@ -1,39 +1,39 @@
 import type {
-  SanityReference,
-  SanityKeyedReference,
   SanityAsset,
-  SanityImage,
-  SanityFile,
-  SanityGeoPoint,
   SanityBlock,
   SanityDocument,
-  SanityImageCrop,
-  SanityImageHotspot,
-  SanityKeyed,
+  SanityFile,
+  SanityGeoPoint,
+  SanityImage,
   SanityImageAsset,
-  SanityImageMetadata,
+  SanityImageCrop,
   SanityImageDimensions,
+  SanityImageHotspot,
+  SanityImageMetadata,
   SanityImagePalette,
   SanityImagePaletteSwatch,
+  SanityKeyed,
+  SanityKeyedReference,
+  SanityReference,
 } from "sanity-codegen";
 
 export type {
-  SanityReference,
-  SanityKeyedReference,
   SanityAsset,
-  SanityImage,
-  SanityFile,
-  SanityGeoPoint,
   SanityBlock,
   SanityDocument,
-  SanityImageCrop,
-  SanityImageHotspot,
-  SanityKeyed,
+  SanityFile,
+  SanityGeoPoint,
+  SanityImage,
   SanityImageAsset,
-  SanityImageMetadata,
+  SanityImageCrop,
   SanityImageDimensions,
+  SanityImageHotspot,
+  SanityImageMetadata,
   SanityImagePalette,
   SanityImagePaletteSwatch,
+  SanityKeyed,
+  SanityKeyedReference,
+  SanityReference,
 };
 
 /**
@@ -310,6 +310,7 @@ export interface News extends SanityDocument {
  *
  */
 export interface Reports extends SanityDocument {
+  [x: string]: any | null | undefined;
   _type: "reports";
 
   /**
